@@ -1,0 +1,122 @@
+{
+    "accel pedal pos": {
+        "factor": 1,
+        "offset": 0
+    },
+    "boost": {
+        "factor": 0.0005661097123674373,
+        "offset": -14.6
+    },
+    "current map": {
+        "factor": 1,
+        "offset": 1
+    },
+    "load req": {
+        "factor": 0.009999072442259532,
+        "offset": -0.03712086077358734
+    },
+    "maf req": {
+        "factor": 0.008647092688543464,
+        "offset": -0.001836499712146722
+    },
+    "oil temp": {
+        "factor": 0.1333333333,
+        "offset": 68.0
+    },
+    "rail pressure": {
+        "factor": 0.076986,
+        "offset": 0
+    },
+    "boost mean": {
+        "factor": 1,
+        "offset": 0
+    },
+    "boost set limit": {
+        "factor": 1,
+        "offset": 0
+    },
+    "boost setpoint": {
+        "factor": 1,
+        "offset": 0
+    },
+    "boost target": {
+        "factor": 0.0005661097123674373,
+        "offset": -14.6
+    },
+    "coolant": {
+        "factor": 1.3450980392156864,
+        "offset": -54.0
+    },
+    "fuel low pressure sensor": {
+        "factor": 0.03848325322346838,
+        "offset": 0
+    },
+    "IAT": {
+        "factor": 1.3450980392156864,
+        "offset": -54.0
+    },
+    "lambda bank 1": {
+        "factor": 0.014340428778515296,
+        "offset": 0
+    },
+    "lambda bank 2": {
+        "factor": 0.014340428778515296,
+        "offset": 0
+    },
+    "load actual": {
+        "factor": 1,
+        "offset": 0
+    },
+    "ltft 1": {
+        "factor": 0.7780392156862744,
+        "offset": -99.6
+    },
+    "ltft 2": {
+        "factor": 0.7780392156862744,
+        "offset": -99.6
+    },
+    "MAF value": {
+        "factor": 0.012920065252854811,
+        "offset": -2.3653181076672105
+    },
+    "RPM": {
+        "factor": 1,
+        "offset": 0
+    },
+    "stft 1": {
+        "factor": 0.001666,
+        "offset": -0.260
+    },
+    "stft 2": {
+        "factor": 0.001666,
+        "offset": -0.260
+    },
+    "timing cyl 1": {
+        "factor": 0.3749019607843137,
+        "offset": -35.6
+    },
+    "timing cyl 2": {
+        "factor": 0.3749019607843137,
+        "offset": -35.6
+    },
+    "timing cyl 3": {
+        "factor": 0.3749019607843137,
+        "offset": -35.6
+    },
+    "timing cyl 4": {
+        "factor": 0.3749019607843137,
+        "offset": -35.6
+    },
+    "timing cyl 5": {
+        "factor": 0.3749019607843137,
+        "offset": -35.6
+    },
+    "timing cyl 6": {
+        "factor": 0.3749019607843137,
+        "offset": -35.6
+    },
+    "transmission temp": {
+        "factor": 1.8,
+        "offset": -40
+    }
+}

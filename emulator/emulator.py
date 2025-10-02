@@ -1,0 +1,176 @@
+"""
+emulate the MHD adapter itself for use with the MHD app
+
+not full emulation, only enough for data logging and grabbing parameters
+"""
+import base64
+import socket
+import time
+
+# setup socket
+a = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+a.bind(("0.0.0.0", 23))
+a.listen(1)
+
+def byteArrayToHex(bytear:bytes):
+    return bytear.hex()
+
+def checksum(data:bytes) -> bytes:
+    """
+    calculate checksum using sum+mod256
+    """
+
+    return bytes([sum(data) % 256])
+
+paramaterPacketFileObject = open("parameterPacket.txt", "w")
+
+qwe = base64.b64decode # i used this cuz it's quick to type `qwe`
+responses = { # every single request and response MHD looks for
+    # Request                   ->          Response
+    qwe("ghLxGoAf"): "n/ESWoAAAAdhE5cAFwAAMzMgCAIHBAAAAAAAAAAAAP///z0=",
+    qwe("gvHx/f1e"): "hfHx/QAQAQ2C",
+    qwe("ghLxGpEw"): "RQAAQAAAQABABr42wKgEAQrXrQEAF7kud+t4Uy9SAstQGAgALjwAAJTxElqRAAAHYROXAAAHYROXAAAHYROXuA==",
+    qwe("ghLxGoYl"): "gPESQlqGAUhJT1RURVIgFAQIAAAHYmFmAAAHYmFlAAAAAAAAAAJATkZTMDEAMDA0NERDMEk4QTBTT1RUUldVWkhSRf///5A=", # VIN request # redact this
+    qwe("ghLxMQrA"): "g/EScQoBAg==",
+    qwe("hhLxIwAAAAdA8w=="): "gPESQWNASElPVFRFUiAIAiMAAAdYMzQAAAdYMzUAAAAAAAABERExMjM0NQAwMDQ0REMwSTg2MFNPVFRSV1VaSFJF////GQ==", # VIN request, two # redact this
+    qwe("g0DxIhAQ9g=="): open("vin.txt", "r").read().strip(), # also vin, this is what MHD checks for licensing
+    #qwe("g0DxIhAQ9g=="): "lPFAYhAQT1RUVFRUVFRUVFRUVFRUVEVS", # vin "OTTTTTTTTTTTTTTTTTER"
+    qwe("gxLxMBsB0g=="): "h/EScBsBAasBq24=", # ts: 57-61
+    qwe("g2DxIjEDKg=="): "mvFgYjEDoCIBRwDxB5sPGhvvHgAAgwQHCcwPDhIB", # ts: 63-67
+    qwe("hxLxI4AH5gAAECo="): "kfESY01IRDKBCAAAAAAAILr/XJlZ", # ts: 69-72
+    qwe("hxLxI4AAwwQABPg="): "hfESY+gP/mJC", # ts 74-77
+    qwe("hxLxI4AAw0QABDg="): "hfESY46c1dS+", # ts 79-82
+    qwe("hxLxI4AIAwQABEA="): "hfESYxPCWO4G", # ts 84-87
+    qwe("hxLxI9AAAAAAQL0="): "gPESQWNBAIOCB4C084IGABAkBuAAv7raP//Rbv1VOTs4VMQKUOqrfZVnF2tW1VWoqwiznquutDFuXlvXx11cqqncvqifKQ==", # ts 89-93
+    qwe("hxLxI4AH5iAAQHo="): "gPESQWN2MTAuMCBzdGcgMSsgOTNfOTggLSA5MyA2MCAtIGUzMCAxMDAgLSA5MSAxMDBBVF94SFAAAAAAAAAAAAAAAAAAcw==", # ts 95-99
+    qwe("hxLxI4AH9wIADDk="): "jfESYwAAAAAAAAAAAAAAAPM=",
+    qwe("gxLxLPAEpg=="): "gvESbPDh",
+    qwe("gBLxcizwAwECwAAICAADAwLAAAgMAAMFAtAAxrIAAwcC0ADN7AADCQHQAHaqAAMKAcAAQv8AAwsC0AAM0AADDQHQAIDsAAMOAdAAjQoAAw8B0ACNCwADEALAAA14AAMSAtAAkZgAAxQC0ABxIgADFgHQAI+YAKo="): "D", # ts 112-116
+    qwe("ghLxIfCW"): "datareq"
+}
+
+# parameters the mhd app is using
+# can be replaced with an integer if parameter isn't present in `MHDParameters`
+# you can overshoot, but not by a lot
+# adding 2 for a parameter that uses 1 is fine, FYI
+parametersList = [
+    2, #MHDParameters.Unknown1,
+    2, #MHDParameters.Unknown2,
+    2, #MHDParameters.AccelPedalPos,
+    2, # gear
+    2, # lb1
+    2, # lb2
+    2, # speed
+    2, # tq actual
+    2, # tq lim
+    2, # tq req
+    2, # wgdc b1
+    2, # wgdc b2
+]
+### or ###
+parametersLen = (
+      2 # unknown1 and unknown2
+    ) + (
+      6 # accelpedpos, lambda1, lambda2, etc.
+    )
+##########
+
+parametersLen = None
+
+def readFill():
+    """reads fill.txt to get the byte to fill up parameters with"""
+    with open("fill.txt", "r") as f:
+        byte = f.read()
+        return bytes.fromhex(byte)
+
+fill = readFill()
+def generateDataPacket():
+    """
+    remember: packet data = data[3:-1]
+    """
+    global fill
+
+    # get fill byte
+    fill = readFill()
+
+    # data packet itself
+    packet = b"\x98\xf1\x12\x61\xf0"
+
+    # figure out how many bytes we need to add
+    totalBytesNeeded = 0
+
+    if parametersLen != None:
+        print("| Using `parametersLen` for TBN")
+        totalBytesNeeded = parametersLen * 2
+    else:
+        print("| Using `parametersList` iteration for TBN")
+        for parameter in parametersList:
+            if type(parameter) == int:
+                totalBytesNeeded += parameter
+            else:
+                totalBytesNeeded += parameter.bytesLength
+
+    # add those bytes
+    print("| Filling {} bytes of {}".format(totalBytesNeeded, fill))
+    for x in range(totalBytesNeeded):
+        packet += fill
+
+    # calc checksum
+    packet += checksum(packet)
+
+    return packet
+
+
+packetsAutoReplied = 0 # how many auto replies we got
+parameterPacket = None # set when a parameter packet is detected
+while True:
+
+    # wait for connection to come to us
+    print("waiting..")
+    conn, addr = a.accept()
+    print("Got connection from {}".format(addr))
+
+    while True:
+        packet = conn.recv(2048) # recv packet
+
+        if len(packet) == 0:
+            break
+
+        time.sleep(0.01) # don't bug out the phone!
+
+        conn.sendall(packet) # reflect the packet back
+
+        print()
+        print('[+] packet <len={}> <b64={}> <raw={}>'.format(len(packet), base64.b64encode(packet), byteArrayToHex(packet)))
+
+        if responses.get(packet, False): # if we have a set response for this packet
+            if responses[packet] == "datareq": # data request
+                data = generateDataPacket() # do our fill stuff
+                print("| Device requested data ({})".format(time.time()))
+                print("\\ Returning {}".format(byteArrayToHex(data)))
+
+                for x in range(2): # send twice to speed up app
+                    conn.sendall(data)
+                    time.sleep(0.05)
+
+                continue
+                
+            # send the response
+            print("| Response is available")
+            conn.sendall(base64.b64decode(responses[packet]))
+            print("\\ Sent response")
+            packetsAutoReplied += 1
+
+        else:
+            if packet[1:3] == b"\x12\xf1": # detect parameter packet
+                print("[!] this a parameter packet")
+                parameterPacket = packet
+                paramaterPacketFileObject.write(
+                    base64.b64encode(packet).decode()
+                )
+                paramaterPacketFileObject.flush()
+                conn.sendall(base64.b64decode("gvESbPDh")) # ack!
+                continue
+
+            print("\\ Auto-response unavailable")
+            print("     Got to reply {} times".format(packetsAutoReplied))

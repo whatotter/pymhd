@@ -1,0 +1,172 @@
+{
+    "Unknown1": {
+        "factor": 1,
+        "offset": 0,
+        "unit": "?"
+    },
+    "Unknown2": {
+        "factor": 1,
+        "offset": 0,
+        "unit": "?"
+    },
+    "Accel Ped. Pos.": {
+        "factor": 0.024509803921568627,
+        "offset": 0,
+        "unit": "%"
+    },
+    "Boost": {
+        "factor": 0.0005661097123674373,
+        "offset": -14.6,
+        "unit": "PSI"
+    },
+    "Current Map": {
+        "factor": 1,
+        "offset": 1,
+        "unit": "-"
+    },
+    "Load Requested": {
+        "factor": 0.009999072442259532,
+        "offset": -0.03712086077358734,
+        "unit": "%"
+    },
+    "MAF Req": {
+        "factor": 0.008647092688543464,
+        "offset": -0.001836499712146722,
+        "unit": "g/s"
+    },
+    "Oil temp": {
+        "factor": 0.1333333333,
+        "offset": 68.0,
+        "unit": "*F"
+    },
+    "Rail pressure": {
+        "factor": 0.076986,
+        "offset": 0,
+        "unit": "PSI"
+    },
+    "Boost Mean": {
+        "factor": 1,
+        "offset": 0,
+        "unit": "PSI"
+    },
+    "Boost Set Limit": {
+        "factor": 1,
+        "offset": 0,
+        "unit": "PSI"
+    },
+    "Boost Set Point": {
+        "factor": 1,
+        "offset": 0,
+        "unit": "PSI"
+    },
+    "Boost target": {
+        "factor": 0.0005661097123674373,
+        "offset": -14.6,
+        "unit": "PSI"
+    },
+    "Coolant": {
+        "factor": 1.3450980392156864,
+        "offset": -54.0,
+        "unit": "*F"
+    },
+    "Fuel low pressure sensor": {
+        "factor": 0.03848325322346838,
+        "offset": 0,
+        "unit": "PSI"
+    },
+    "IAT": {
+        "factor": 1.3450980392156864,
+        "offset": -54.0,
+        "unit": "*F"
+    },
+    "Lambda bank 1": {
+        "factor": 0.014340428778515296,
+        "offset": 0,
+        "unit": "AFR"
+    },
+    "Lambda bank 2": {
+        "factor": 0.014340428778515296,
+        "offset": 0,
+        "unit": "AFR"
+    },
+    "Actual Load": {
+        "factor": 1,
+        "offset": 0,
+        "unit": "%"
+    },
+    "LTFT 1": {
+        "factor": 0.7780392156862744,
+        "offset": -99.6,
+        "unit": "%"
+    },
+    "LTFT 2": {
+        "factor": 0.7780392156862744,
+        "offset": -99.6,
+        "unit": "%"
+    },
+    "MAF value": {
+        "factor": 0.012920065252854811,
+        "offset": -2.3653181076672105,
+        "unit": "g/s"
+    },
+    "RPM": {
+        "factor": 1,
+        "offset": 0,
+        "unit": "RPM"
+    },
+    "STFT 1": {
+        "factor": 0.001666,
+        "offset": -0.26,
+        "unit": "%"
+    },
+    "STFT 2": {
+        "factor": 0.001666,
+        "offset": -0.26,
+        "unit": "%"
+    },
+    "Timing Cyl. 1": {
+        "factor": 0.3749019607843137,
+        "offset": -35.6,
+        "unit": "*"
+    },
+    "Timing Cyl. 2": {
+        "factor": 0.3749019607843137,
+        "offset": -35.6,
+        "unit": "*"
+    },
+    "Timing Cyl. 3": {
+        "factor": 0.3749019607843137,
+        "offset": -35.6,
+        "unit": "*"
+    },
+    "Timing Cyl. 4": {
+        "factor": 0.3749019607843137,
+        "offset": -35.6,
+        "unit": "*"
+    },
+    "Timing Cyl. 5": {
+        "factor": 0.3749019607843137,
+        "offset": -35.6,
+        "unit": "*"
+    },
+    "Timing Cyl. 6": {
+        "factor": 0.3749019607843137,
+        "offset": -35.6,
+        "unit": "*"
+    },
+    "Transmission temp": {
+        "factor": 1.8,
+        "offset": -40,
+        "unit": "*F"
+    },
+    "WGDC Bank 1": {
+        "factor": 0.0015259021896696422,
+        "offset": 0.0,
+        "unit": "%"
+    },
+    "WGDC Bank 2": {
+        "factor": 0.0015259021896696422,
+        "offset": 0.0,
+        "unit": "%"
+    }
+}
