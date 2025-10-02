@@ -53,19 +53,37 @@ responses = { # every single request and response MHD looks for
 # can be replaced with an integer if parameter isn't present in `MHDParameters`
 # you can overshoot, but not by a lot
 # adding 2 for a parameter that uses 1 is fine, FYI
+"""
+        2, MHDParameters.AccelPedalPos,
+        2, MHDParameters.BoostActual,
+        2, MHDParameters.BoostTarget,
+        1, MHDParameters.CoolantTemp,
+        1, MHDParameters.CurrentMap,
+        2, MHDParameters.LPFP,
+        1, MHDParameters.IAT,
+        2, MHDParameters.LambdaBank1,
+        2, MHDParameters.LambdaBank2,
+        2, MHDParameters.OilTemp,
+        2, MHDParameters.RailPressure,
+        2, MHDParameters.RPM,
+        1, MHDParameters.TransTemp
+"""
 parametersList = [
-    2, #MHDParameters.Unknown1,
     2, #MHDParameters.Unknown2,
-    2, #MHDParameters.AccelPedalPos,
-    2, # gear
-    2, # lb1
-    2, # lb2
-    2, # speed
-    2, # tq actual
-    2, # tq lim
-    2, # tq req
-    2, # wgdc b1
-    2, # wgdc b2
+
+    2,
+    2,
+    2,
+    1,
+    1,
+    2,
+    1,
+    2,
+    2,
+    2,
+    2,
+    2,
+    1,
 ]
 ### or ###
 parametersLen = (
@@ -149,9 +167,12 @@ while True:
                 print("| Device requested data ({})".format(time.time()))
                 print("\\ Returning {}".format(byteArrayToHex(data)))
 
-                for x in range(2): # send twice to speed up app
-                    conn.sendall(data)
-                    time.sleep(0.05)
+                #for x in range(1): # send twice to speed up app
+                #    conn.sendall(data)
+                #    time.sleep(0.05)
+
+                conn.sendall(data)
+                time.sleep(0.05)
 
                 continue
                 

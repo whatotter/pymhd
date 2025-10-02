@@ -42,8 +42,8 @@ while True:
     for key, values in data.items():
         print("{} = {}".format(key, values["value"]))
 
-    # 10hz / sleep a little to not overload the adapter (not needed, make as many requests as you want, this is just a demo)
-    time.sleep(0.01)
+    # 50hz / sleep a little to not overload the adapter (not needed, make as many requests as you want, this is just a demo)
+    time.sleep(0.02)
 ```
 
 <sub>i really should fill this readme out more huh</sub>

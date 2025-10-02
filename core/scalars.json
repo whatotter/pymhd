@@ -9,7 +9,7 @@
         "offset": 0,
         "unit": "?"
     },
-    "Accel Ped. Pos.": {
+    "Accel Ped. Pos": {
         "factor": 0.024509803921568627,
         "offset": 0,
         "unit": "%"

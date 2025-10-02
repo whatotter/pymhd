@@ -3,7 +3,7 @@ Decoding for recieved MHD packets
 """
 
 import json
-from mhd.core.parameters import MHDParameter
+from core.parameters import MHDParameter
 
 def loadJsonFile(file):
     with open(file, "r") as f:
@@ -30,7 +30,7 @@ class MHDDecode():
         self.parameters = parametersList
         self.parameterNames = [prm.name for prm in self.parameters]
 
-        self.scales = loadJsonFile("./mhd/core/scalars.json")
+        self.scales = loadJsonFile("./core/scalars.json")
         pass
 
     def uint16(self, _bytes:list):
@@ -100,7 +100,7 @@ class MHDDecode():
             else:
                 try:
                     optDict[opt.name] = {"value": round(self.DecodeBytes(_bytes, opt), 4)}
-                except:
+                except (UnicodeDecodeError, IndexError):
                     optDict[opt.name] = {"value": onFailure}
                     #raise KeyError("failed to decode the frame you fed me - are you sure this is right?")
 

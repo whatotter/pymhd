@@ -1,6 +1,6 @@
-from mhd.core.packets import MHDPacket, MHDPackets
-from mhd.core.parameters import MHDParameter, MHDParameters
-from mhd.core.decode import MHDDecode
+from core.packets import MHDPacket, MHDPackets
+from core.parameters import MHDParameter, MHDParameters
+from core.decode import MHDDecode
 
 import socket
 import threading
@@ -11,7 +11,8 @@ class MHDAdapter():
                  parameters:list[MHDParameter],
                    dryRun:bool=False,
                    timeout:float=0.5, # quite aggressive timeout huh
-                   heartbeatInterval:float=25
+                   heartbeatInterval:float=25,
+                   ipAddr:str="192.168.4.1"
                 ):
         """
         MHD adapter object
@@ -29,12 +30,14 @@ class MHDAdapter():
         if 12 > len(parameters): # TODO: figure out why this is
             raise KeyError("a minimum of 12 parameters is needed - you have {}".format(len(parameters)))
 
+        #region Connection stuffs
         if not dryRun:
             self.tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            self.tcp.connect(("192.168.4.1", 23))
+            self.tcp.connect((ipAddr, 23))
             self.tcp.settimeout(timeout)
         else:
             self.tcp = False
+        #endregion
 
         #region Retrieve vehicle info
         if self.tcp:
@@ -62,13 +65,16 @@ class MHDAdapter():
         self.sendParametersPacket()
         #endregion
 
+        #region Heartbeat thread
         self.heartbeatInterval = heartbeatInterval
-        self.hbStallTime       = 0.025
+        self.hbStallTime       = 0.01
         self.hbPacketsSent     = 0
+        self.sendingKA         = False
         threading.Thread(target=self.__heartBeat__, daemon=True).start()
-        self.sendingKA = False
-        
+        #endregion
+
         pass
+
 
     def __heartBeat__(self):
         """
@@ -200,6 +206,13 @@ class MHDAdapter():
                 print("[MHD] Packet recieved didn't pass expectedSize: {} < {}".format(
                     len(DMEResponse), expectedSize)
                     )
+                
+    def close(self) -> None:
+        """
+        close adapter connection
+        """
+
+        self.tcp.close()
     
     def requestData(self) -> dict:
         """
@@ -210,7 +223,7 @@ class MHDAdapter():
         """
 
         if self.sendingKA:
-            print("Halted due to keep alive thread sending it's packet")
+            #print("Halted due to keep alive packet in transit")
             while self.sendingKA:
                 time.sleep(0) # wait for keep alive to finish sending and recieving
 
@@ -220,10 +233,69 @@ class MHDAdapter():
                 packet = self.xfer(
                     MHDPackets.RequestRegisters
                 )
+
+                return self.decoder.attemptDecode(packet.data)
             except TimeoutError:
                 timedout += 1
                 print("[MHD] Timed out waiting for DME parameters packet ({} times)".format(timedout))
                 continue
 
-            return self.decoder.attemptDecode(packet.data)
 
+if __name__ == "__main__":
+    import argparse
+
+    parser = argparse.ArgumentParser(description="MHD adapter toolset")
+
+    parser.add_argument("--target", help="IP to connect to (default: 192.168.4.1)", default="192.168.4.1")
+    parser.add_argument("--vdata", action="store_true", help="Print out vehicle data (VIN, DME version, flashed file)")
+    parser.add_argument("--codes", action="store_true", help="Read DME codes")
+    parser.add_argument("--monitor", action="store_true", help="Monitor vehicle data (parameters r hardcoded, for now)")
+
+    args = parser.parse_args()
+
+    print("[+] Attempting to connect to adapter @ {}:23...".format(args.target))
+    adapter = MHDAdapter([
+        MHDParameters.AccelPedalPos,
+        MHDParameters.BoostActual,
+        MHDParameters.BoostTarget,
+        MHDParameters.CoolantTemp,
+        MHDParameters.CurrentMap,
+        MHDParameters.LPFP,
+        MHDParameters.IAT,
+        MHDParameters.LambdaBank1,
+        MHDParameters.LambdaBank2,
+        MHDParameters.OilTemp,
+        MHDParameters.RailPressure,
+        MHDParameters.RPM,
+        MHDParameters.TransTemp
+    ], ipAddr=args.target)
+    print("[!] Connected")
+
+    print("")
+
+    if args.vdata:
+        print("[*] VIN           = {}".format(adapter.vin))
+        print("[*] DME ROM       = {}".format(adapter.dme))
+        print("[*] Flashed file  = {}".format(adapter.flash))
+
+    if args.codes:
+        print("[+] WIP")
+
+    if args.monitor:
+        print("\033[s") # save cursor position in console
+        while True:
+            try:
+                data = adapter.requestData() # request data from DME
+
+                print("\033[u") # put cursor position back up to where we started, to print over what we have
+
+                # print out all DME data we recieved
+                for parameterName, parameterValue in data.items():
+                    print("{} = {}".format(parameterName, parameterValue) + (" "*10))
+
+                time.sleep(0.1) # 10hz
+            except KeyboardInterrupt:
+                print("Ctrl + C")
+                break
+
+    adapter.close()

@@ -5,7 +5,7 @@ currently the best way to read MHD frames via CAN, still needs refining
 """
 
 import can
-import mhd.canbus.decodeMHD as decodeMHD
+import canbus.decodeMHD as decodeMHD
 
 bus = can.interface.Bus(
     interface='socketcan', 
