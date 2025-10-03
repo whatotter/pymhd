@@ -84,7 +84,24 @@ def buildActiveCodes() -> bytes:
 
     return totalPacket
 
+def replaceVin(b64):
+    packet = base64.b64decode(b64)
 
+    vinFile = open("dme_vin.txt", "r").read().strip()
+    vinOne = vinFile[:10].encode()
+    vinTwo = vinFile[10:17].encode()
+
+    # padding
+    while len(vinOne) != 10:
+        vinOne += b" "
+    # padding
+    while len(vinTwo) != 7:
+        vinTwo += b" "
+
+    packet = packet.replace(b"OTTRWUZHRE", vinOne)
+    packet = packet.replace(b"HIOTTER", vinTwo)
+
+    return base64.b64encode(packet).decode()
 
 paramaterPacketFileObject = open("parameterPacket.txt", "w")
 
@@ -94,11 +111,14 @@ responses = { # every single request and response MHD looks for
     qwe("ghLxGoAf"): "n/ESWoAAAAdhE5cAFwAAMzMgCAIHBAAAAAAAAAAAAP///z0=",
     qwe("gvHx/f1e"): "hfHx/QAQAQ2C",
     qwe("ghLxGpEw"): "RQAAQAAAQABABr42wKgEAQrXrQEAF7kud+t4Uy9SAstQGAgALjwAAJTxElqRAAAHYROXAAAHYROXAAAHYROXuA==",
-    qwe("ghLxGoYl"): "gPESQlqGAUhJT1RURVIgFAQIAAAHYmFmAAAHYmFlAAAAAAAAAAJATkZTMDEAMDA0NERDMEk4QTBTT1RUUldVWkhSRf///5A=", # VIN request # redact this
     qwe("ghLxMQrA"): "g/EScQoBAg==",
-    qwe("hhLxIwAAAAdA8w=="): "gPESQWNASElPVFRFUiAIAiMAAAdYMzQAAAdYMzUAAAAAAAABERExMjM0NQAwMDQ0REMwSTg2MFNPVFRSV1VaSFJF////GQ==", # VIN request, two # redact this
+
+    # vin requests
+    qwe("ghLxGoYl"): replaceVin("gPESQlqGAUhJT1RURVIgFAQIAAAHYmFmAAAHYmFlAAAAAAAAAAJATkZTMDEAMDA0NERDMEk4QTBTT1RUUldVWkhSRf///5A="), # VIN request # redact this
+    qwe("hhLxIwAAAAdA8w=="): replaceVin("gPESQWNASElPVFRFUiAIAiMAAAdYMzQAAAdYMzUAAAAAAAABERExMjM0NQAwMDQ0REMwSTg2MFNPVFRSV1VaSFJF////GQ=="), # VIN request, two # redact this
     qwe("g0DxIhAQ9g=="): open("vin.txt", "r").read().strip(), # also vin, this is what MHD checks for licensing
     #qwe("g0DxIhAQ9g=="): "lPFAYhAQT1RUVFRUVFRUVFRUVFRUVEVS", # vin "OTTTTTTTTTTTTTTTTTER"
+
     qwe("gxLxMBsB0g=="): "h/EScBsBAasBq24=", # ts: 57-61
     qwe("g2DxIjEDKg=="): "mvFgYjEDoCIBRwDxB5sPGhvvHgAAgwQHCcwPDhIB", # ts: 63-67
     qwe("hxLxI4AH5gAAECo="): "kfESY01IRDKBCAAAAAAAILr/XJlZ", # ts: 69-72
@@ -120,7 +140,7 @@ responses = { # every single request and response MHD looks for
         buildActiveCodes()
         ).decode(),
 
-    #qwe("gxLxIiAAyA=="): "lvESYiAABi3tSC9sJCqvATD/CCx3hCx4hKI=", # ts 116-119, shadow codes? don't know
+    #qwe("gxLxIiAAyA=="): "lvESYiAABi3tSC9sJCqvATD/CCx3hCx4hKI=", # ts 116-119, shadow+active codes
     qwe("gxLxIiAAyA=="): base64.b64encode(
         buildShadowCodes()
         ).decode(),

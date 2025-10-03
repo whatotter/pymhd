@@ -10,7 +10,7 @@ class MHDAdapter():
     def __init__(self, 
                  parameters:list[MHDParameter],
                    dryRun:bool=False,
-                   timeout:float=0.5, # quite aggressive timeout huh
+                   timeout:float=1,
                    heartbeatInterval:float=25,
                    ipAddr:str="192.168.4.1"
                 ):
@@ -344,7 +344,7 @@ if __name__ == "__main__":
         defaultDescription = {"description": "No description found"}
 
         print("")
-        print("-*-*-*-*-* Active *-*-*-*-*-")
+        print("-*-*-*-*-*-*-*-*-*-* Active codes *-*-*-*-*-*-*-*-*-*-")
         for activeCode in codes["active"]:
             print("{}: {}".format(
                 activeCode,
@@ -353,7 +353,7 @@ if __name__ == "__main__":
 
         print("")
 
-        print("-*-*-*-*-* Shadow *-*-*-*-*-")
+        print("-*-*-*-*-*-*-*-*-*-* Shadow codes *-*-*-*-*-*-*-*-*-*-")
         for shadowCode in codes["shadow"]:
             print("{}: {}".format(
                 shadowCode,
