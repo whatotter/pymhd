@@ -12,6 +12,31 @@ a = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 a.bind(("0.0.0.0", 23))
 a.listen(1)
 
+# io
+paramaterPacketFileObject = open("parameterPacket.txt", "w")
+
+# parameters the mhd app is using
+# can be replaced with an integer if parameter isn't present in `MHDParameters`
+# you can overshoot, but not by a lot
+# adding 2 for a parameter that uses 1 is fine, FYI
+parametersList = [
+    2, #MHDParameters.Unknown2,
+
+    2,
+    2,
+    2,
+    1,
+    1,
+    2,
+    1,
+    2,
+    2,
+    2,
+    2,
+    2,
+    1,
+]
+
 def byteArrayToHex(bytear:bytes):
     return bytear.hex()
 
@@ -84,7 +109,7 @@ def buildActiveCodes() -> bytes:
 
     return totalPacket
 
-def replaceVin(b64):
+def replaceDmeVin(b64):
     packet = base64.b64decode(b64)
 
     vinFile = open("dme_vin.txt", "r").read().strip()
@@ -103,96 +128,17 @@ def replaceVin(b64):
 
     return base64.b64encode(packet).decode()
 
-paramaterPacketFileObject = open("parameterPacket.txt", "w")
+def replaceCasVin(b64):
+    packet = base64.b64decode(b64)
 
-qwe = base64.b64decode # i used this cuz it's quick to type `qwe`
-responses = { # every single request and response MHD looks for
-    # Request                   ->          Response
-    qwe("ghLxGoAf"): "n/ESWoAAAAdhE5cAFwAAMzMgCAIHBAAAAAAAAAAAAP///z0=",
-    qwe("gvHx/f1e"): "hfHx/QAQAQ2C",
-    qwe("ghLxGpEw"): "RQAAQAAAQABABr42wKgEAQrXrQEAF7kud+t4Uy9SAstQGAgALjwAAJTxElqRAAAHYROXAAAHYROXAAAHYROXuA==",
-    qwe("ghLxMQrA"): "g/EScQoBAg==",
+    vinFile = open("vin.txt", "r").read().strip()
+    vin = vinFile[:17].encode()
 
-    # vin requests
-    qwe("ghLxGoYl"): replaceVin("gPESQlqGAUhJT1RURVIgFAQIAAAHYmFmAAAHYmFlAAAAAAAAAAJATkZTMDEAMDA0NERDMEk4QTBTT1RUUldVWkhSRf///5A="), # VIN request # redact this
-    qwe("hhLxIwAAAAdA8w=="): replaceVin("gPESQWNASElPVFRFUiAIAiMAAAdYMzQAAAdYMzUAAAAAAAABERExMjM0NQAwMDQ0REMwSTg2MFNPVFRSV1VaSFJF////GQ=="), # VIN request, two # redact this
-    qwe("g0DxIhAQ9g=="): open("vin.txt", "r").read().strip(), # also vin, this is what MHD checks for licensing
-    #qwe("g0DxIhAQ9g=="): "lPFAYhAQT1RUVFRUVFRUVFRUVFRUVEVS", # vin "OTTTTTTTTTTTTTTTTTER"
+    # padding
+    vin += b'G'
 
-    qwe("gxLxMBsB0g=="): "h/EScBsBAasBq24=", # ts: 57-61
-    qwe("g2DxIjEDKg=="): "mvFgYjEDoCIBRwDxB5sPGhvvHgAAgwQHCcwPDhIB", # ts: 63-67
-    qwe("hxLxI4AH5gAAECo="): "kfESY01IRDKBCAAAAAAAILr/XJlZ", # ts: 69-72
-    qwe("hxLxI4AAwwQABPg="): "hfESY+gP/mJC", # ts 74-77
-    qwe("hxLxI4AAw0QABDg="): "hfESY46c1dS+", # ts 79-82
-    qwe("hxLxI4AIAwQABEA="): "hfESYxPCWO4G", # ts 84-87
-    qwe("hxLxI9AAAAAAQL0="): "gPESQWNBAIOCB4C084IGABAkBuAAv7raP//Rbv1VOTs4VMQKUOqrfZVnF2tW1VWoqwiznquutDFuXlvXx11cqqncvqifKQ==", # ts 89-93
-    qwe("hxLxI4AH5iAAQHo="): "gPESQWN2MTAuMCBzdGcgMSsgOTNfOTggLSA5MyA2MCAtIGUzMCAxMDAgLSA5MSAxMDBBVF94SFAAAAAAAAAAAAAAAAAAcw==", # ts 95-99
-    qwe("hxLxI4AH9wIADDk="): "jfESYwAAAAAAAAAAAAAAAPM=",
-    qwe("gxLxLPAEpg=="): "gvESbPDh",
-    qwe("ghLxIfCW"): "datareq",
-
-    # code reading portions
-    qwe("hxLxI9AAOKQABF0="): "hfESYwAAAADr", # not sure..
-    qwe("hxLxI9AAOKAABFk="): "hfESYwAAAADr", # ts 106-109, also not sure..
-
-    #qwe("hBLxGAL//58="): "i/ESWAMt7Ugsd4QseISa", # ts 111-114 - returns active codes
-    qwe("hBLxGAL//58="): base64.b64encode(
-        buildActiveCodes()
-        ).decode(),
-
-    #qwe("gxLxIiAAyA=="): "lvESYiAABi3tSC9sJCqvATD/CCx3hCx4hKI=", # ts 116-119, shadow+active codes
-    qwe("gxLxIiAAyA=="): base64.b64encode(
-        buildShadowCodes()
-        ).decode(),
-
-    qwe("ghLxIQWr"): "hfESYQUHYWW7" # ts 121-124, some sort of 'finish' request
-}
-
-# parameters the mhd app is using
-# can be replaced with an integer if parameter isn't present in `MHDParameters`
-# you can overshoot, but not by a lot
-# adding 2 for a parameter that uses 1 is fine, FYI
-"""
-        2, MHDParameters.AccelPedalPos,
-        2, MHDParameters.BoostActual,
-        2, MHDParameters.BoostTarget,
-        1, MHDParameters.CoolantTemp,
-        1, MHDParameters.CurrentMap,
-        2, MHDParameters.LPFP,
-        1, MHDParameters.IAT,
-        2, MHDParameters.LambdaBank1,
-        2, MHDParameters.LambdaBank2,
-        2, MHDParameters.OilTemp,
-        2, MHDParameters.RailPressure,
-        2, MHDParameters.RPM,
-        1, MHDParameters.TransTemp
-"""
-parametersList = [
-    2, #MHDParameters.Unknown2,
-
-    2,
-    2,
-    2,
-    1,
-    1,
-    2,
-    1,
-    2,
-    2,
-    2,
-    2,
-    2,
-    1,
-]
-### or ###
-parametersLen = (
-      2 # unknown1 and unknown2
-    ) + (
-      6 # accelpedpos, lambda1, lambda2, etc.
-    )
-##########
-
-parametersLen = None
+    packet = packet.replace(b"OTTTTTTTTTTTTTTTER", vin)
+    return base64.b64encode(packet).decode()
 
 def readFill():
     """reads fill.txt to get the byte to fill up parameters with"""
@@ -200,7 +146,6 @@ def readFill():
         byte = f.read()
         return bytes.fromhex(byte)
 
-fill = readFill()
 def generateDataPacket():
     """
     remember: packet data = data[3:-1]
@@ -216,16 +161,12 @@ def generateDataPacket():
     # figure out how many bytes we need to add
     totalBytesNeeded = 0
 
-    if parametersLen != None:
-        print("| Using `parametersLen` for TBN")
-        totalBytesNeeded = parametersLen * 2
-    else:
-        print("| Using `parametersList` iteration for TBN")
-        for parameter in parametersList:
-            if type(parameter) == int:
-                totalBytesNeeded += parameter
-            else:
-                totalBytesNeeded += parameter.bytesLength
+    print("| Using `parametersList` iteration for TBN")
+    for parameter in parametersList:
+        if type(parameter) == int:
+            totalBytesNeeded += parameter
+        else:
+            totalBytesNeeded += parameter.bytesLength
 
     # add those bytes
     print("| Filling {} bytes of {}".format(totalBytesNeeded, fill))
@@ -237,6 +178,53 @@ def generateDataPacket():
 
     return packet
 
+responses = { # every single request and response MHD looks for
+    # Request                   ->          Response
+
+    #region Vin requests
+    base64.b64decode("ghLxGoYl"):          replaceDmeVin("gPESQlqGAUhJT1RURVIgFAQIAAAHYmFmAAAHYmFlAAAAAAAAAAJATkZTMDEAMDA0NERDMEk4QTBTT1RUUldVWkhSRf///5A="), # VIN request # redact this
+    base64.b64decode("hhLxIwAAAAdA8w=="):  replaceDmeVin("gPESQWNASElPVFRFUiAIAiMAAAdYMzQAAAdYMzUAAAAAAAABERExMjM0NQAwMDQ0REMwSTg2MFNPVFRSV1VaSFJF////GQ=="), # VIN request, two # redact this
+    base64.b64decode("g0DxIhAQ9g=="):      replaceCasVin("lPFAYhAQT1RUVFRUVFRUVFRUVFRUVEVS"), # also vin, this is what MHD checks for licensing
+    #endregion
+
+    #region Unknown/Misc requests
+    base64.b64decode("gxLxMBsB0g=="):      "h/EScBsBAasBq24=", # ts: 57-61
+    base64.b64decode("g2DxIjEDKg=="):      "mvFgYjEDoCIBRwDxB5sPGhvvHgAAgwQHCcwPDhIB", # ts: 63-67
+    base64.b64decode("hxLxI4AH5gAAECo="):  "kfESY01IRDKBCAAAAAAAILr/XJlZ", # ts: 69-72
+    base64.b64decode("hxLxI4AAwwQABPg="):  "hfESY+gP/mJC", # ts 74-77
+    base64.b64decode("hxLxI4AAw0QABDg="):  "hfESY46c1dS+", # ts 79-82
+    base64.b64decode("hxLxI4AIAwQABEA="):  "hfESYxPCWO4G", # ts 84-87
+    base64.b64decode("hxLxI9AAAAAAQL0="):  "gPESQWNBAIOCB4C084IGABAkBuAAv7raP//Rbv1VOTs4VMQKUOqrfZVnF2tW1VWoqwiznquutDFuXlvXx11cqqncvqifKQ==", # ts 89-93
+    base64.b64decode("hxLxI4AH5iAAQHo="):  "gPESQWN2MTAuMCBzdGcgMSsgOTNfOTggLSA5MyA2MCAtIGUzMCAxMDAgLSA5MSAxMDBBVF94SFAAAAAAAAAAAAAAAAAAcw==", # ts 95-99
+    base64.b64decode("hxLxI4AH9wIADDk="):  "jfESYwAAAAAAAAAAAAAAAPM=",
+    base64.b64decode("gxLxLPAEpg=="):      "gvESbPDh",
+    base64.b64decode("ghLxGoAf"):          "n/ESWoAAAAdhE5cAFwAAMzMgCAIHBAAAAAAAAAAAAP///z0=",
+    base64.b64decode("gvHx/f1e"):          "hfHx/QAQAQ2C",
+    base64.b64decode("ghLxGpEw"):          "RQAAQAAAQABABr42wKgEAQrXrQEAF7kud+t4Uy9SAstQGAgALjwAAJTxElqRAAAHYROXAAAHYROXAAAHYROXuA==",
+    base64.b64decode("ghLxMQrA"):          "g/EScQoBAg==",
+    #endregion
+
+    base64.b64decode("ghLxIfCW"):          "datareq",
+
+    #region Code reading requests
+    base64.b64decode("hxLxI9AAOKQABF0="):  "hfESYwAAAADr", # not sure..
+    base64.b64decode("hxLxI9AAOKAABFk="):  "hfESYwAAAADr", # ts 106-109, also not sure..
+
+    #base64.b64decode("hBLxGAL//58="): "i/ESWAMt7Ugsd4QseISa", # ts 111-114 - returns active codes
+    base64.b64decode("hBLxGAL//58="): base64.b64encode(
+        buildActiveCodes()
+        ).decode(),
+
+    #base64.b64decode("gxLxIiAAyA=="): "lvESYiAABi3tSC9sJCqvATD/CCx3hCx4hKI=", # ts 116-119, shadow+active codes
+    base64.b64decode("gxLxIiAAyA=="): base64.b64encode(
+        buildShadowCodes()
+        ).decode(),
+
+    base64.b64decode("ghLxIQWr"): "hfESYQUHYWW7" # ts 121-124, some sort of 'finish' request
+    #endregion
+}
+
+fill = readFill()
 
 packetsAutoReplied = 0 # how many auto replies we got
 parameterPacket = None # set when a parameter packet is detected
