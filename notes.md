@@ -123,6 +123,7 @@ things to note:
 - MHD app does authentication for license, the DME doesn't do anything
     - meaning you could monitor for free, without having to pay for the monitoring license
     - hmmmmmmmm....
+- MHD autheticates via the CAS VIN
 
 
 ## Response frames
@@ -351,13 +352,42 @@ usage:
 6. adjust gauge values using `fill.txt` (1 byte hexadecimal), or `emuSweep.py`
 7. profit
 
+## reading codes
+for the MHD adapter to read codes from the DME, it issues a request (full: `83 12 f1 22 20 c0 c8`), then gets a response
+
+
+
+`83 12 f1 22 20 c0 c8` (get ALL codes, shadow and active):
+```
+              total amount of codes stored
+                         vv
+0000   96 f1 12 62 20 00 06  2d ed 48  2f 6c 24  2a af 01   ...b ..-.H/l$*..
+                             ^^^^^^^^  ^^^^^^^^  ^^^^^^^^
+0010   30 ff 08  2c 77 84  2c 78 84  a2                         0..,w.,x..
+       ^^^^^^^^  ^^^^^^^^  ^^^^^^^^
+
+0000   96 f1 12 62 20 00 06 2d ed 48 2f 6c 24 2a af 01   ...b ..-.H/l$*..
+0010   30 ff 08 2c 77 84 2c 78 84 a2                     0..,w.,x..
+
+```
+
+`84 12 f1 18 02 ff ff 9f` (get only active codes):
+```
+       total amount of codes stored
+                   vv
+0000   8b f1 12 58 03 2d ed 48 2c 77 84 2c 78 84 9a      ...X.-.H,w.,x..
+                      ^^^^^^^^ ^^^^^^^^ ^^^^^^^^
+```
+
 ## special frames
 - request data
     - `82 12 f1 21 f0` `<checksum>`
 - response data
     - `0x80` `<2 bytes, no clue>` `<data>` `<checksum>`
-- buttons data maybe?
+- buttons data maybe? (response from MHD adapter)
     - `0x80` `0x71 0xc 0x4`
+- request DME codes
+    - `83 12 f1 22 20 c0 c8`
 
 ## request flow
 1. initial request

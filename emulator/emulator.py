@@ -22,6 +22,70 @@ def checksum(data:bytes) -> bytes:
 
     return bytes([sum(data) % 256])
 
+def buildShadowCodes() -> bytes:
+    """
+    build shadow codes from `shadowCodes.txt`
+    """
+
+    codes = open("shadowCodes.txt").read().split("\n")[:20] # only 20 codes can be sent
+
+    calc_first_byte = lambda data: (0x80+1) | ((len(data) - 1) & 0x7F)
+
+    totalPacket = b''
+
+    totalPacket += b"\xf1\x12\x62\x20\x00" # shadow+active codes request
+    totalPacket += int.to_bytes(len(codes)) # amount of codes stored
+
+    # add all codes we want
+    for code in codes:
+        if len(code) == 4:
+            totalPacket += bytes.fromhex(code)
+            totalPacket += b"\x01" # TODO: figure out how this works
+
+    # calc first byte
+    firstByte = bytes([calc_first_byte(totalPacket)-1])
+    print('first byte: {}'.format(firstByte))
+    totalPacket = firstByte + totalPacket
+
+    # finally, calc checksum
+    totalPacket += checksum(totalPacket)
+
+    return totalPacket
+
+def buildActiveCodes() -> bytes:
+    """
+    build active codes from `activeCodes.txt`
+    """
+
+    codes = open("activeCodes.txt").read().split("\n")[:20] # only 20 codes can be sent
+
+    calc_first_byte = lambda data: (0x80+1) | ((len(data) - 1) & 0x7F)
+
+    totalPacket = b''
+
+    totalPacket += b"\xf1\x12\x58" # active codes request
+    totalPacket += int.to_bytes(len(codes)) # amount of codes stored
+
+    # add all codes we want
+    for code in codes:
+        if len(code) == 4:
+            totalPacket += bytes.fromhex(code)
+            totalPacket += b"\x48" # TODO: figure out how this works
+
+    # calc first byte
+    firstByte = bytes([calc_first_byte(totalPacket)-1])
+
+    print('first byte: {}'.format(firstByte))
+
+    totalPacket = firstByte + totalPacket
+
+    # finally, calc checksum
+    totalPacket += checksum(totalPacket)
+
+    return totalPacket
+
+
+
 paramaterPacketFileObject = open("parameterPacket.txt", "w")
 
 qwe = base64.b64decode # i used this cuz it's quick to type `qwe`
@@ -45,8 +109,23 @@ responses = { # every single request and response MHD looks for
     qwe("hxLxI4AH5iAAQHo="): "gPESQWN2MTAuMCBzdGcgMSsgOTNfOTggLSA5MyA2MCAtIGUzMCAxMDAgLSA5MSAxMDBBVF94SFAAAAAAAAAAAAAAAAAAcw==", # ts 95-99
     qwe("hxLxI4AH9wIADDk="): "jfESYwAAAAAAAAAAAAAAAPM=",
     qwe("gxLxLPAEpg=="): "gvESbPDh",
-    qwe("gBLxcizwAwECwAAICAADAwLAAAgMAAMFAtAAxrIAAwcC0ADN7AADCQHQAHaqAAMKAcAAQv8AAwsC0AAM0AADDQHQAIDsAAMOAdAAjQoAAw8B0ACNCwADEALAAA14AAMSAtAAkZgAAxQC0ABxIgADFgHQAI+YAKo="): "D", # ts 112-116
-    qwe("ghLxIfCW"): "datareq"
+    qwe("ghLxIfCW"): "datareq",
+
+    # code reading portions
+    qwe("hxLxI9AAOKQABF0="): "hfESYwAAAADr", # not sure..
+    qwe("hxLxI9AAOKAABFk="): "hfESYwAAAADr", # ts 106-109, also not sure..
+
+    #qwe("hBLxGAL//58="): "i/ESWAMt7Ugsd4QseISa", # ts 111-114 - returns active codes
+    qwe("hBLxGAL//58="): base64.b64encode(
+        buildActiveCodes()
+        ).decode(),
+
+    #qwe("gxLxIiAAyA=="): "lvESYiAABi3tSC9sJCqvATD/CCx3hCx4hKI=", # ts 116-119, shadow codes? don't know
+    qwe("gxLxIiAAyA=="): base64.b64encode(
+        buildShadowCodes()
+        ).decode(),
+
+    qwe("ghLxIQWr"): "hfESYQUHYWW7" # ts 121-124, some sort of 'finish' request
 }
 
 # parameters the mhd app is using
@@ -153,10 +232,10 @@ while True:
 
         if len(packet) == 0:
             break
-
-        time.sleep(0.01) # don't bug out the phone!
-
-        conn.sendall(packet) # reflect the packet back
+        
+        for x in range(2):
+            time.sleep(0.01) # don't bug out the phone!
+            conn.sendall(packet) # reflect the packet back
 
         print()
         print('[+] packet <len={}> <b64={}> <raw={}>'.format(len(packet), base64.b64encode(packet), byteArrayToHex(packet)))
@@ -183,7 +262,7 @@ while True:
             packetsAutoReplied += 1
 
         else:
-            if packet[1:3] == b"\x12\xf1": # detect parameter packet
+            if packet[1:3] == b"\x12\xf1\x2c": # detect parameter packet
                 print("[!] this a parameter packet")
                 parameterPacket = packet
                 paramaterPacketFileObject.write(
