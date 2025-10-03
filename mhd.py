@@ -35,6 +35,7 @@ class MHDAdapter():
             self.tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             self.tcp.connect((ipAddr, 23))
             self.tcp.settimeout(timeout)
+            self.timeout = timeout
         else:
             self.tcp = False
         #endregion
@@ -46,6 +47,7 @@ class MHDAdapter():
             self.dme = (dmePacket.rawData[52:57]).decode().strip()
             self.vin = (dmePacket.rawData[57:67] + dmePacket.rawData[7:14]).decode().strip()
             self.flash = self.xfer(MHDPackets.RequestFlash, prepend=False).data[2:].decode().strip()
+            
             pass
         #endregion
 
@@ -98,7 +100,7 @@ class MHDAdapter():
 
         return bytes([sum(data) % 256])
     
-    def sendData(self, packet:bytes, prepend:bool=True):
+    def sendData(self, packet:bytes, prepend:bool=True, calcChecksum:bool=True):
         """
         send data to adapter, no recieve, no reflection check
 
@@ -107,6 +109,7 @@ class MHDAdapter():
         Args:
             packet (bytes): Packet bytes to send to the adapter
             prepend (bool): Whether or not to prepend packet bytes with `b'\\x82'` (typically needed, set to `False` if you know what your doing)
+            calcChecksum(bool): Whether or not to calculate the checksum
         """
 
         # compile packet
@@ -116,8 +119,9 @@ class MHDAdapter():
             staging = packet
         
         # calculate and add checksum
-        chksum  = self.__calcChecksum__(staging)
-        packet = staging + chksum
+        if calcChecksum:
+            chksum  = self.__calcChecksum__(staging)
+            packet = staging + chksum
 
         # send!
         if self.tcp != False:
@@ -174,7 +178,7 @@ class MHDAdapter():
                 pass
 
 
-    def xfer(self, data:bytes, prepend:bool=True, expectedSize:int=0) -> MHDPacket:
+    def xfer(self, data:bytes, prepend:bool=True, useCRC:bool=True, expectedSize:int=0) -> MHDPacket:
         """
         Transfer data to the adapter for the DME to respond
 
@@ -187,7 +191,7 @@ class MHDAdapter():
             MHDPacket: Data packet response from the DME
         """
 
-        self.sendData(data, prepend=prepend)
+        self.sendData(data, prepend=prepend, calcChecksum=useCRC)
 
         # honestly fuck the reflection idk what's wrong with it but \
         # it doesn't reflect correctly, it doesn't match with the data sent
@@ -240,9 +244,63 @@ class MHDAdapter():
                 print("[MHD] Timed out waiting for DME parameters packet ({} times)".format(timedout))
                 continue
 
+    def readCodes(self) -> dict:
+        """
+        read shadow and active codes from the DME, returning them in hexadecimal format
+
+        Returns:
+            dict: Dictionary in structure of `{"active": ["30ff", "...."], "shadow": ["29f4", "...."]}`
+        """
+
+        # todo: make this cleaner
+
+        self.tcp.settimeout(5) # increase timeout, make sure we get everything
+
+        # get the data we need from the DME
+        shadowPlusActive = self.xfer(
+                    MHDPackets.RequestShadowActiveCodes,
+                    prepend=False, useCRC=False
+                )
+        
+        activeOnly = self.xfer(
+                    MHDPackets.RequestActiveCodes,
+                    prepend=False, useCRC=False
+                )
+        
+        # get bytes we need from `activeOnly` packet
+        activeCodesData   = activeOnly.data[2:]   # Active codes data
+        activeCodes = []
+
+        # get bytes we need from `shadowPlusActive` packet
+        shadowActiveCodesData   = shadowPlusActive.data[4:] # Shadow+Active codes data
+        shadowCodes = []
+
+        # parse all active codes first
+        for x in range(0, len(activeCodesData), 3):
+            activeCodes.append(
+                activeCodesData[x:x+2].hex()
+            )
+
+        # parse all shadow+active codes..
+        for x in range(0, len(shadowActiveCodesData), 3):
+            shadowCodes.append(
+                shadowActiveCodesData[x:x+2].hex()
+            )
+        # then filter for shadow codes only
+        shadowCodes = list(
+            filter(
+                lambda x: x not in activeCodes,
+                shadowCodes,
+            )
+        )
+
+        self.tcp.settimeout(self.timeout) # reset timeout back to whatever timeout set
+
+        return {"active": activeCodes, "shadow": shadowCodes}
 
 if __name__ == "__main__":
     import argparse
+    import json
 
     parser = argparse.ArgumentParser(description="MHD adapter toolset")
 
@@ -279,7 +337,30 @@ if __name__ == "__main__":
         print("[*] Flashed file  = {}".format(adapter.flash))
 
     if args.codes:
-        print("[+] WIP")
+        codes = adapter.readCodes()
+
+        # user friendly code decoder thingy
+        friendlyCodes = json.loads(open("./core/codes.json", "r").read())
+        defaultDescription = {"description": "No description found"}
+
+        print("")
+        print("-*-*-*-*-* Active *-*-*-*-*-")
+        for activeCode in codes["active"]:
+            print("{}: {}".format(
+                activeCode,
+                friendlyCodes.get(activeCode.upper(), defaultDescription)["description"]
+            ))
+
+        print("")
+
+        print("-*-*-*-*-* Shadow *-*-*-*-*-")
+        for shadowCode in codes["shadow"]:
+            print("{}: {}".format(
+                shadowCode,
+                friendlyCodes.get(shadowCode.upper(), defaultDescription)["description"]
+            ))
+        print("")
+        
 
     if args.monitor:
         print("\033[s") # save cursor position in console

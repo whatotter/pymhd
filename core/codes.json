@@ -1,0 +1,1866 @@
+{
+  "comment": "we do NOT need this many codes man",
+  "29CC": {
+    "description": "Misfire, multiple cylinders"
+  },
+  "29CD": {
+    "description": "Misfire, cylinder 1"
+  },
+  "29CE": {
+    "description": "Misfire, cylinder 2"
+  },
+  "29CF": {
+    "description": "Misfire, cylinder 3"
+  },
+  "29D0": {
+    "description": "Misfire, cylinder 4"
+  },
+  "29D1": {
+    "description": "Misfire, cylinder 5"
+  },
+  "29D2": {
+    "description": "Misfire, cylinder 6"
+  },
+  "29D3": {
+    "description": "Misfire, cylinder 7"
+  },
+  "29D4": {
+    "description": "Misfire, cylinder 8"
+  },
+  "29D9": {
+    "description": "Misfire due to low fuel"
+  },
+  "29DC": {
+    "description": "Cylinder injection switch-off"
+  },
+  "29E0": {
+    "description": "Fuel mixture control, bank 1 (cylinders 1-3)"
+  },
+  "29E1": {
+    "description": "Fuel mixture control, bank 2 (cylinders 4-6)"
+  },
+  "29E2": {
+    "description": "Fuel injection rail, pressure sensor signal"
+  },
+  "29E3": {
+    "description": "Fuel mixture too rich, bank 2"
+  },
+  "29E4": {
+    "description": "Fuel trim, bank 1 system too lean"
+  },
+  "29E5": {
+    "description": "Fuel trim, bank 1 system too rich"
+  },
+  "29E6": {
+    "description": "Fuel trim, bank 2 system too lean"
+  },
+  "29E7": {
+    "description": "Fuel trim, bank 2 system too rich"
+  },
+  "29E8": {
+    "description": "Fuel trim bank 1, additive deviation"
+  },
+  "29E9": {
+    "description": "Fuel trim bank 2, additive deviation"
+  },
+  "29EA": {
+    "description": "Fuel trim bank 1, multiplicative deviation"
+  },
+  "29EB": {
+    "description": "Fuel trim bank 2, multiplicative deviation"
+  },
+  "29EC": {
+    "description": "Fuel system, pressure too low at start"
+  },
+  "29ED": {
+    "description": "Fuel system, pressure regulation fault"
+  },
+  "29EE": {
+    "description": "Fuel injector, general malfunction"
+  },
+  "29EF": {
+    "description": "Fuel system, leak detected"
+  },
+  "29F0": {
+    "description": "Catalyst system efficiency below threshold, bank 1"
+  },
+  "29F1": {
+    "description": "Catalyst system efficiency below threshold, bank 2"
+  },
+  "29F2": {
+    "description": "Catalyst temperature too high, bank 1"
+  },
+  "29F3": {
+    "description": "Fuel pressure sensor, electrical"
+  },
+  "29F4": {
+    "description": "Catalyst temperature too high, bank 2"
+  },
+  "29F5": {
+    "description": "Oxygen sensor heater bank 1 sensor 1, circuit fault"
+  },
+  "29F6": {
+    "description": "Oxygen sensor heater bank 1 sensor 2, circuit fault"
+  },
+  "29F7": {
+    "description": "Oxygen sensor heater bank 2 sensor 1, circuit fault"
+  },
+  "29F8": {
+    "description": "Oxygen sensor heater bank 2 sensor 2, circuit fault"
+  },
+  "29F9": {
+    "description": "Secondary air injection system, insufficient flow bank 1"
+  },
+  "29FA": {
+    "description": "Secondary air injection system, insufficient flow bank 2"
+  },
+  "29FB": {
+    "description": "Secondary air injection system, excessive flow bank 1"
+  },
+  "29FC": {
+    "description": "Secondary air injection system, excessive flow bank 2"
+  },
+  "29FD": {
+    "description": "EVAP system, incorrect purge flow"
+  },
+  "29FE": {
+    "description": "EVAP system, no purge flow detected"
+  },
+  "29FF": {
+    "description": "EVAP system, excessive purge flow"
+  },
+  "2A03": {
+    "description": "Fuel pump control module, communication fault"
+  },
+  "2A04": {
+    "description": "Fuel pump, current too low"
+  },
+  "2A05": {
+    "description": "Fuel pump, current too high"
+  },
+  "2A06": {
+    "description": "Fuel pump, performance insufficient"
+  },
+  "2A07": {
+    "description": "Fuel pump, supply voltage fault"
+  },
+  "2A08": {
+    "description": "Low pressure fuel system, pressure too low"
+  },
+  "2A09": {
+    "description": "Low pressure fuel system, pressure too high"
+  },
+  "2A0A": {
+    "description": "Low pressure fuel sensor, signal missing"
+  },
+  "2A0B": {
+    "description": "Low pressure fuel sensor, plausibility"
+  },
+  "2A0C": {
+    "description": "Fuel tank breather valve, short to ground"
+  },
+  "2A0D": {
+    "description": "Fuel tank breather valve, short to positive"
+  },
+  "2A0E": {
+    "description": "Fuel tank breather valve, open circuit"
+  },
+  "2A0F": {
+    "description": "Fuel tank breather valve, stuck"
+  },
+  "2A1C": {
+    "description": "VANOS adjustment bank 1 intake, stuck"
+  },
+  "2A1D": {
+    "description": "VANOS adjustment bank 1 exhaust, stuck"
+  },
+  "2A1E": {
+    "description": "VANOS adjustment bank 2 intake, stuck"
+  },
+  "2A1F": {
+    "description": "VANOS adjustment bank 2 exhaust, stuck"
+  },
+  "2A28": {
+    "description": "Valvetronic system, initialization incomplete"
+  },
+  "2A29": {
+    "description": "Valvetronic system, adaptation fault"
+  },
+  "2A2A": {
+    "description": "Valvetronic system, maximum lift not reached"
+  },
+  "2A2B": {
+    "description": "Valvetronic system, minimum lift not reached"
+  },
+  "2A2C": {
+    "description": "Valvetronic system, position control deviation"
+  },
+  "2A2D": {
+    "description": "Valvetronic system, emergency mode active"
+  },
+  "2C2C": {
+    "description": "Lambda probe in front of catalytic converter 2, system check"
+  },
+  "2C31": {
+    "description": "Lambda probe in front of cat 1, trimming control"
+  },
+  "2C32": {
+    "description": "Lambda probe in front of cat 2, trimming control"
+  },
+  "2C3C": {
+    "description": "Lambda probe in front of catalytic converter, not plugged"
+  },
+  "2C3D": {
+    "description": "Lambda probe in front of catalytic converter, control failure"
+  },
+  "2C3E": {
+    "description": "Lambda probe in front of catalytic converter 2, control failure"
+  },
+  "2C6A": {
+    "description": "Lambda probe behind catalytic converter, muddled"
+  },
+  "2C6B": {
+    "description": "Lambda probe behind catalytic converter, system check"
+  },
+  "2C74": {
+    "description": "Lambda probe behind catalytic converter 2, signal"
+  },
+  "2C7B": {
+    "description": "Lambda probe behind catalytic converter, signal"
+  },
+  "2C7C": {
+    "description": "Lambda probe behind catalytic converter 2, signal"
+  },
+  "2C7E": {
+    "description": "Lambda probe behind catalytic converter, trimming control"
+  },
+  "2C7F": {
+    "description": "Lambda probe behind catalytic converter 2, trimming control"
+  },
+  "2CA7": {
+    "description": "Lambda probe heating in front of catalytic converter 2, function"
+  },
+  "2CAB": {
+    "description": "Lambda probe 2 before catalyst, temperature"
+  },
+  "2FA4": {
+    "description": "DME incorrect data record"
+  },
+  "2FBE": {
+    "description": "Fuel pressure after motor stop"
+  },
+  "2FBF": {
+    "description": "Fuel pressure at injection release"
+  },
+  "30BA": {
+    "description": "DME internal failure, injector MOSFET"
+  },
+  "30BB": {
+    "description": "DME internal failure, injector driver"
+  },
+  "30BE": {
+    "description": "Injector, calibration plausibility"
+  },
+  "30CF": {
+    "description": "Wastegate, input signal"
+  },
+  "30FE": {
+    "description": "Exhaust fume turbocharger, high-pressure side (overboost)"
+  },
+  "30FF": {
+    "description": "Exhaust fume turbocharger, low side (underboost)"
+  },
+  "3100": {
+    "description": "Boost-pressure control, deactivation"
+  },
+  "2800": {
+    "description": "Mass air flow sensor, signal missing"
+  },
+  "2801": {
+    "description": "Mass air flow sensor, plausibility"
+  },
+  "2802": {
+    "description": "Mass air flow sensor, short to ground"
+  },
+  "2803": {
+    "description": "Mass air flow sensor, short to positive"
+  },
+  "2810": {
+    "description": "Intake air temperature sensor, signal missing"
+  },
+  "2811": {
+    "description": "Intake air temperature sensor, plausibility"
+  },
+  "2812": {
+    "description": "Intake air temperature sensor, short to ground"
+  },
+  "2813": {
+    "description": "Intake air temperature sensor, short to positive"
+  },
+  "2820": {
+    "description": "Engine coolant temperature sensor, signal missing"
+  },
+  "2821": {
+    "description": "Engine coolant temperature sensor, plausibility"
+  },
+  "2822": {
+    "description": "Engine coolant temperature sensor, short to ground"
+  },
+  "2823": {
+    "description": "Engine coolant temperature sensor, short to positive"
+  },
+  "2830": {
+    "description": "Throttle position sensor, signal missing"
+  },
+  "2831": {
+    "description": "Throttle position sensor, plausibility"
+  },
+  "2832": {
+    "description": "Throttle position sensor, short to ground"
+  },
+  "2833": {
+    "description": "Throttle position sensor, short to positive"
+  },
+  "2840": {
+    "description": "Accelerator pedal position sensor, signal missing"
+  },
+  "2841": {
+    "description": "Accelerator pedal position sensor, plausibility"
+  },
+  "2842": {
+    "description": "Accelerator pedal position sensor, short to ground"
+  },
+  "2843": {
+    "description": "Accelerator pedal position sensor, short to positive"
+  },
+  "2850": {
+    "description": "Camshaft position sensor, signal missing"
+  },
+  "2851": {
+    "description": "Camshaft position sensor, plausibility"
+  },
+  "2852": {
+    "description": "Camshaft position sensor, short to ground"
+  },
+  "2853": {
+    "description": "Camshaft position sensor, short to positive"
+  },
+  "2860": {
+    "description": "Crankshaft position sensor, signal missing"
+  },
+  "2861": {
+    "description": "Crankshaft position sensor, plausibility"
+  },
+  "2862": {
+    "description": "Crankshaft position sensor, short to ground"
+  },
+  "2863": {
+    "description": "Crankshaft position sensor, short to positive"
+  },
+  "2870": {
+    "description": "Knock sensor 1, signal missing"
+  },
+  "2871": {
+    "description": "Knock sensor 1, plausibility"
+  },
+  "2872": {
+    "description": "Knock sensor 1, short to ground"
+  },
+  "2873": {
+    "description": "Knock sensor 1, short to positive"
+  },
+  "2874": {
+    "description": "Knock sensor 2, signal missing"
+  },
+  "2875": {
+    "description": "Knock sensor 2, plausibility"
+  },
+  "2876": {
+    "description": "Knock sensor 2, short to ground"
+  },
+  "2877": {
+    "description": "Knock sensor 2, short to positive"
+  },
+  "2880": {
+    "description": "Oil temperature sensor, signal missing"
+  },
+  "2881": {
+    "description": "Oil temperature sensor, plausibility"
+  },
+  "2882": {
+    "description": "Oil temperature sensor, short to ground"
+  },
+  "2883": {
+    "description": "Oil temperature sensor, short to positive"
+  },
+  "2890": {
+    "description": "Oxygen sensor bank 1 sensor 1, signal missing"
+  },
+  "2891": {
+    "description": "Oxygen sensor bank 1 sensor 1, plausibility"
+  },
+  "2892": {
+    "description": "Oxygen sensor bank 1 sensor 1, short to ground"
+  },
+  "2893": {
+    "description": "Oxygen sensor bank 1 sensor 1, short to positive"
+  },
+  "2894": {
+    "description": "Oxygen sensor bank 1 sensor 1, heater circuit fault"
+  },
+  "2895": {
+    "description": "Oxygen sensor bank 1 sensor 1, slow response"
+  },
+  "2896": {
+    "description": "Oxygen sensor bank 1 sensor 1, aging"
+  },
+  "28A0": {
+    "description": "Oxygen sensor bank 1 sensor 2, signal missing"
+  },
+  "28A1": {
+    "description": "Oxygen sensor bank 1 sensor 2, plausibility"
+  },
+  "28A2": {
+    "description": "Oxygen sensor bank 1 sensor 2, short to ground"
+  },
+  "28A3": {
+    "description": "Oxygen sensor bank 1 sensor 2, short to positive"
+  },
+  "28A4": {
+    "description": "Oxygen sensor bank 1 sensor 2, heater circuit fault"
+  },
+  "28A5": {
+    "description": "Oxygen sensor bank 1 sensor 2, slow response"
+  },
+  "28A6": {
+    "description": "Oxygen sensor bank 1 sensor 2, aging"
+  },
+  "28B0": {
+    "description": "Oxygen sensor bank 2 sensor 1, signal missing"
+  },
+  "28B1": {
+    "description": "Oxygen sensor bank 2 sensor 1, plausibility"
+  },
+  "28B2": {
+    "description": "Oxygen sensor bank 2 sensor 1, short to ground"
+  },
+  "28B3": {
+    "description": "Oxygen sensor bank 2 sensor 1, short to positive"
+  },
+  "28B4": {
+    "description": "Oxygen sensor bank 2 sensor 1, heater circuit fault"
+  },
+  "28B5": {
+    "description": "Oxygen sensor bank 2 sensor 1, slow response"
+  },
+  "28B6": {
+    "description": "Oxygen sensor bank 2 sensor 1, aging"
+  },
+  "28C0": {
+    "description": "Oxygen sensor bank 2 sensor 2, signal missing"
+  },
+  "28C1": {
+    "description": "Oxygen sensor bank 2 sensor 2, plausibility"
+  },
+  "28C2": {
+    "description": "Oxygen sensor bank 2 sensor 2, short to ground"
+  },
+  "28C3": {
+    "description": "Oxygen sensor bank 2 sensor 2, short to positive"
+  },
+  "28C4": {
+    "description": "Oxygen sensor bank 2 sensor 2, heater circuit fault"
+  },
+  "28C5": {
+    "description": "Oxygen sensor bank 2 sensor 2, slow response"
+  },
+  "28C6": {
+    "description": "Oxygen sensor bank 2 sensor 2, aging"
+  },
+  "2900": {
+    "description": "Fuel injector cylinder 1, short to ground"
+  },
+  "2901": {
+    "description": "Fuel injector cylinder 1, short to positive"
+  },
+  "2902": {
+    "description": "Fuel injector cylinder 1, open circuit"
+  },
+  "2903": {
+    "description": "Fuel injector cylinder 2, short to ground"
+  },
+  "2904": {
+    "description": "Fuel injector cylinder 2, short to positive"
+  },
+  "2905": {
+    "description": "Fuel injector cylinder 2, open circuit"
+  },
+  "2906": {
+    "description": "Fuel injector cylinder 3, short to ground"
+  },
+  "2907": {
+    "description": "Fuel injector cylinder 3, short to positive"
+  },
+  "2908": {
+    "description": "Fuel injector cylinder 3, open circuit"
+  },
+  "2909": {
+    "description": "Fuel injector cylinder 4, short to ground"
+  },
+  "290A": {
+    "description": "Fuel injector cylinder 4, short to positive"
+  },
+  "290B": {
+    "description": "Fuel injector cylinder 4, open circuit"
+  },
+  "290C": {
+    "description": "Fuel injector cylinder 5, short to ground"
+  },
+  "290D": {
+    "description": "Fuel injector cylinder 5, short to positive"
+  },
+  "290E": {
+    "description": "Fuel injector cylinder 5, open circuit"
+  },
+  "290F": {
+    "description": "Fuel injector cylinder 6, short to ground"
+  },
+  "2910": {
+    "description": "Fuel injector cylinder 6, short to positive"
+  },
+  "2911": {
+    "description": "Fuel injector cylinder 6, open circuit"
+  },
+  "2912": {
+    "description": "Fuel injector cylinder 7, short to ground"
+  },
+  "2913": {
+    "description": "Fuel injector cylinder 7, short to positive"
+  },
+  "2914": {
+    "description": "Fuel injector cylinder 7, open circuit"
+  },
+  "2915": {
+    "description": "Fuel injector cylinder 8, short to ground"
+  },
+  "2916": {
+    "description": "Fuel injector cylinder 8, short to positive"
+  },
+  "2917": {
+    "description": "Fuel injector cylinder 8, open circuit"
+  },
+  "2920": {
+    "description": "Ignition coil cylinder 1, short to ground"
+  },
+  "2921": {
+    "description": "Ignition coil cylinder 1, short to positive"
+  },
+  "2922": {
+    "description": "Ignition coil cylinder 1, open circuit"
+  },
+  "2923": {
+    "description": "Ignition coil cylinder 2, short to ground"
+  },
+  "2924": {
+    "description": "Ignition coil cylinder 2, short to positive"
+  },
+  "2925": {
+    "description": "Ignition coil cylinder 2, open circuit"
+  },
+  "2926": {
+    "description": "Ignition coil cylinder 3, short to ground"
+  },
+  "2927": {
+    "description": "Ignition coil cylinder 3, short to positive"
+  },
+  "2928": {
+    "description": "Ignition coil cylinder 3, open circuit"
+  },
+  "2929": {
+    "description": "Ignition coil cylinder 4, short to ground"
+  },
+  "292A": {
+    "description": "Ignition coil cylinder 4, short to positive"
+  },
+  "292B": {
+    "description": "Ignition coil cylinder 4, open circuit"
+  },
+  "292C": {
+    "description": "Ignition coil cylinder 5, short to ground"
+  },
+  "292D": {
+    "description": "Ignition coil cylinder 5, short to positive"
+  },
+  "292E": {
+    "description": "Ignition coil cylinder 5, open circuit"
+  },
+  "292F": {
+    "description": "Ignition coil cylinder 6, short to ground"
+  },
+  "2930": {
+    "description": "Ignition coil cylinder 6, short to positive"
+  },
+  "2931": {
+    "description": "Ignition coil cylinder 6, open circuit"
+  },
+  "2932": {
+    "description": "Ignition coil cylinder 7, short to ground"
+  },
+  "2933": {
+    "description": "Ignition coil cylinder 7, short to positive"
+  },
+  "2934": {
+    "description": "Ignition coil cylinder 7, open circuit"
+  },
+  "2935": {
+    "description": "Ignition coil cylinder 8, short to ground"
+  },
+  "2936": {
+    "description": "Ignition coil cylinder 8, short to positive"
+  },
+  "2937": {
+    "description": "Ignition coil cylinder 8, open circuit"
+  },
+  "2A00": {
+    "description": "Fuel pump relay, short to ground"
+  },
+  "2A01": {
+    "description": "Fuel pump relay, short to positive"
+  },
+  "2A02": {
+    "description": "Fuel pump relay, open circuit"
+  },
+  "2A10": {
+    "description": "VANOS solenoid bank 1 intake, short to ground"
+  },
+  "2A11": {
+    "description": "VANOS solenoid bank 1 intake, short to positive"
+  },
+  "2A12": {
+    "description": "VANOS solenoid bank 1 intake, open circuit"
+  },
+  "2A13": {
+    "description": "VANOS solenoid bank 1 exhaust, short to ground"
+  },
+  "2A14": {
+    "description": "VANOS solenoid bank 1 exhaust, short to positive"
+  },
+  "2A15": {
+    "description": "VANOS solenoid bank 1 exhaust, open circuit"
+  },
+  "2A16": {
+    "description": "VANOS solenoid bank 2 intake, short to ground"
+  },
+  "2A17": {
+    "description": "VANOS solenoid bank 2 intake, short to positive"
+  },
+  "2A18": {
+    "description": "VANOS solenoid bank 2 intake, open circuit"
+  },
+  "2A19": {
+    "description": "VANOS solenoid bank 2 exhaust, short to ground"
+  },
+  "2A1A": {
+    "description": "VANOS solenoid bank 2 exhaust, short to positive"
+  },
+  "2A1B": {
+    "description": "VANOS solenoid bank 2 exhaust, open circuit"
+  },
+  "2A20": {
+    "description": "Valvetronic motor, short to ground"
+  },
+  "2A21": {
+    "description": "Valvetronic motor, short to positive"
+  },
+  "2A22": {
+    "description": "Valvetronic motor, open circuit"
+  },
+  "2A23": {
+    "description": "Valvetronic motor, mechanical fault"
+  },
+  "2A24": {
+    "description": "Valvetronic sensor, signal missing"
+  },
+  "2A25": {
+    "description": "Valvetronic sensor, plausibility"
+  },
+  "2A26": {
+    "description": "Valvetronic eccentric shaft sensor, signal missing"
+  },
+  "2A27": {
+    "description": "Valvetronic eccentric shaft sensor, plausibility"
+  },
+  "2A30": {
+    "description": "Throttle actuator, short to ground"
+  },
+  "2A31": {
+    "description": "Throttle actuator, short to positive"
+  },
+  "2A32": {
+    "description": "Throttle actuator, open circuit"
+  },
+  "2A33": {
+    "description": "Throttle actuator, mechanical fault"
+  },
+  "2A34": {
+    "description": "Throttle valve, stuck open"
+  },
+  "2A35": {
+    "description": "Throttle valve, stuck closed"
+  },
+  "2A40": {
+    "description": "Secondary air injection pump relay, short to ground"
+  },
+  "2A41": {
+    "description": "Secondary air injection pump relay, short to positive"
+  },
+  "2A42": {
+    "description": "Secondary air injection pump relay, open circuit"
+  },
+  "2A43": {
+    "description": "Secondary air injection system, flow too low"
+  },
+  "2A44": {
+    "description": "Secondary air injection valve, short to ground"
+  },
+  "2A45": {
+    "description": "Secondary air injection valve, short to positive"
+  },
+  "2A46": {
+    "description": "Secondary air injection valve, open circuit"
+  },
+  "2A50": {
+    "description": "EVAP purge valve, short to ground"
+  },
+  "2A51": {
+    "description": "EVAP purge valve, short to positive"
+  },
+  "2A52": {
+    "description": "EVAP purge valve, open circuit"
+  },
+  "2A53": {
+    "description": "EVAP system, leak detected"
+  },
+  "2A54": {
+    "description": "EVAP system, large leak detected"
+  },
+  "2A55": {
+    "description": "EVAP system, small leak detected"
+  },
+  "2A60": {
+    "description": "Exhaust flap actuator, short to ground"
+  },
+  "2A61": {
+    "description": "Exhaust flap actuator, short to positive"
+  },
+  "2A62": {
+    "description": "Exhaust flap actuator, open circuit"
+  },
+  "2A63": {
+    "description": "Exhaust flap, mechanical fault"
+  },
+  "2A70": {
+    "description": "Oil condition sensor, signal missing"
+  },
+  "2A71": {
+    "description": "Oil condition sensor, plausibility"
+  },
+  "2B00": {
+    "description": "CAN communication fault, PT-CAN"
+  },
+  "2B01": {
+    "description": "CAN communication fault, DME to transmission"
+  },
+  "2B02": {
+    "description": "CAN communication fault, DME to ABS/DSC"
+  },
+  "2B03": {
+    "description": "CAN communication fault, DME to instrument cluster"
+  },
+  "2B04": {
+    "description": "CAN communication fault, DME to body control module"
+  },
+  "2B05": {
+    "description": "CAN communication fault, PT-CAN bus off"
+  },
+  "2C00": {
+    "description": "Vehicle speed signal, plausibility"
+  },
+  "2C01": {
+    "description": "Vehicle speed signal, missing"
+  },
+  "2C10": {
+    "description": "Brake signal, plausibility"
+  },
+  "2C11": {
+    "description": "Brake signal, missing"
+  },
+  "2C20": {
+    "description": "Clutch signal, plausibility"
+  },
+  "2C21": {
+    "description": "Clutch signal, missing"
+  },
+  "2D00": {
+    "description": "Starter motor relay, short to ground"
+  },
+  "2D01": {
+    "description": "Starter motor relay, short to positive"
+  },
+  "2D02": {
+    "description": "Starter motor relay, open circuit"
+  },
+  "2D10": {
+    "description": "Main relay, short to ground"
+  },
+  "2D11": {
+    "description": "Main relay, short to positive"
+  },
+  "2D12": {
+    "description": "Main relay, open circuit"
+  },
+  "2E00": {
+    "description": "Boost pressure control, deviation positive"
+  },
+  "2E01": {
+    "description": "Boost pressure control, deviation negative"
+  },
+  "2E02": {
+    "description": "Boost pressure sensor, signal missing"
+  },
+  "2E03": {
+    "description": "Boost pressure sensor, plausibility"
+  },
+  "2E04": {
+    "description": "Wastegate actuator, short to ground"
+  },
+  "2E05": {
+    "description": "Wastegate actuator, short to positive"
+  },
+  "2E06": {
+    "description": "Wastegate actuator, open circuit"
+  },
+  "2E07": {
+    "description": "Wastegate actuator, mechanical fault"
+  },
+  "2E10": {
+    "description": "Charge air cooler bypass valve, short to ground"
+  },
+  "2E11": {
+    "description": "Charge air cooler bypass valve, short to positive"
+  },
+  "2E12": {
+    "description": "Charge air cooler bypass valve, open circuit"
+  },
+  "2F00": {
+    "description": "Lambda control, bank 1 sensor 1 slow response"
+  },
+  "2F01": {
+    "description": "Lambda control, bank 1 sensor 2 slow response"
+  },
+  "2F02": {
+    "description": "Lambda control, bank 2 sensor 1 slow response"
+  },
+  "2F03": {
+    "description": "Lambda control, bank 2 sensor 2 slow response"
+  },
+  "2F10": {
+    "description": "Lambda control adaptation limit reached, bank 1"
+  },
+  "2F11": {
+    "description": "Lambda control adaptation limit reached, bank 2"
+  },
+  "3000": {
+    "description": "Oil pressure switch, signal implausible"
+  },
+  "3001": {
+    "description": "Oil pressure too low"
+  },
+  "3002": {
+    "description": "Oil level sensor, signal missing"
+  },
+  "3003": {
+    "description": "Oil level too low"
+  },
+  "3010": {
+    "description": "Coolant level sensor, signal missing"
+  },
+  "3011": {
+    "description": "Coolant level too low"
+  },
+  "3020": {
+    "description": "Engine overheating"
+  },
+  "3021": {
+    "description": "Engine temperature too low"
+  },
+  "3030": {
+    "description": "Intake manifold flap actuator, short to ground"
+  },
+  "3031": {
+    "description": "Intake manifold flap actuator, short to positive"
+  },
+  "3032": {
+    "description": "Intake manifold flap actuator, open circuit"
+  },
+  "3033": {
+    "description": "Intake manifold flap, mechanical fault"
+  },
+  "3040": {
+    "description": "Electric coolant pump, short to ground"
+  },
+  "3041": {
+    "description": "Electric coolant pump, short to positive"
+  },
+  "3042": {
+    "description": "Electric coolant pump, open circuit"
+  },
+  "3043": {
+    "description": "Electric coolant pump, mechanical fault"
+  },
+  "3050": {
+    "description": "Thermostat, stuck open"
+  },
+  "3051": {
+    "description": "Thermostat, stuck closed"
+  },
+  "3052": {
+    "description": "Thermostat, short to ground"
+  },
+  "3053": {
+    "description": "Thermostat, short to positive"
+  },
+  "3054": {
+    "description": "Thermostat, open circuit"
+  },
+  "3101": {
+    "description": "High pressure fuel pump, pressure too low"
+  },
+  "3102": {
+    "description": "High pressure fuel pump, pressure too high"
+  },
+  "3103": {
+    "description": "Fuel pressure sensor, signal missing"
+  },
+  "3104": {
+    "description": "Fuel pressure sensor, plausibility"
+  },
+  "3105": {
+    "description": "Fuel pressure regulator valve, short to ground"
+  },
+  "3106": {
+    "description": "Fuel pressure regulator valve, short to positive"
+  },
+  "3107": {
+    "description": "Fuel pressure regulator valve, open circuit"
+  },
+  "3200": {
+    "description": "Crankcase ventilation valve, short to ground"
+  },
+  "3201": {
+    "description": "Crankcase ventilation valve, short to positive"
+  },
+  "3202": {
+    "description": "Crankcase ventilation valve, open circuit"
+  },
+  "3203": {
+    "description": "Crankcase ventilation system, flow too high"
+  },
+  "3300": {
+    "description": "EGR valve, short to ground"
+  },
+  "3301": {
+    "description": "EGR valve, short to positive"
+  },
+  "3302": {
+    "description": "EGR valve, open circuit"
+  },
+  "3303": {
+    "description": "EGR valve, mechanical fault"
+  },
+  "3304": {
+    "description": "EGR system, flow too low"
+  },
+  "3305": {
+    "description": "EGR system, flow too high"
+  },
+  "3306": {
+    "description": "EGR cooler bypass valve, short to ground"
+  },
+  "3307": {
+    "description": "EGR cooler bypass valve, short to positive"
+  },
+  "3308": {
+    "description": "EGR cooler bypass valve, open circuit"
+  },
+  "3400": {
+    "description": "Turbocharger boost pressure control solenoid, short to ground"
+  },
+  "3401": {
+    "description": "Turbocharger boost pressure control solenoid, short to positive"
+  },
+  "3402": {
+    "description": "Turbocharger boost pressure control solenoid, open circuit"
+  },
+  "3403": {
+    "description": "Turbocharger overboost condition"
+  },
+  "3404": {
+    "description": "Turbocharger underboost condition"
+  },
+  "3405": {
+    "description": "Turbocharger compressor bypass valve, short to ground"
+  },
+  "3406": {
+    "description": "Turbocharger compressor bypass valve, short to positive"
+  },
+  "3407": {
+    "description": "Turbocharger compressor bypass valve, open circuit"
+  },
+  "3500": {
+    "description": "Start-stop system disabled, battery voltage too low"
+  },
+  "3501": {
+    "description": "Start-stop system disabled, battery temperature too high"
+  },
+  "3502": {
+    "description": "Start-stop system disabled, battery temperature too low"
+  },
+  "3503": {
+    "description": "Start-stop system disabled, engine temperature too low"
+  },
+  "3504": {
+    "description": "Start-stop system disabled, HVAC demand"
+  },
+  "3505": {
+    "description": "Start-stop system disabled, brake vacuum too low"
+  },
+  "3600": {
+    "description": "Cylinder head temperature sensor, implausible signal"
+  },
+  "3601": {
+    "description": "Engine oil temperature sensor, implausible signal"
+  },
+  "3700": {
+    "description": "Hot film air mass meter, contaminated"
+  },
+  "3701": {
+    "description": "Hot film air mass meter, signal too low"
+  },
+  "3702": {
+    "description": "Hot film air mass meter, signal too high"
+  },
+  "4000": {
+    "description": "Catalyst system efficiency below threshold, bank 1"
+  },
+  "4001": {
+    "description": "Catalyst system efficiency below threshold, bank 2"
+  },
+  "4002": {
+    "description": "Catalyst temperature too high, bank 1"
+  },
+  "4003": {
+    "description": "Catalyst temperature too high, bank 2"
+  },
+  "4010": {
+    "description": "Catalytic converter, aging bank 1"
+  },
+  "4011": {
+    "description": "Catalytic converter, aging bank 2"
+  },
+  "4100": {
+    "description": "Fuel system too lean, bank 1"
+  },
+  "4101": {
+    "description": "Fuel system too rich, bank 1"
+  },
+  "4102": {
+    "description": "Fuel system too lean, bank 2"
+  },
+  "4103": {
+    "description": "Fuel system too rich, bank 2"
+  },
+  "4200": {
+    "description": "Air conditioning compressor, short to ground"
+  },
+  "4201": {
+    "description": "Air conditioning compressor, short to positive"
+  },
+  "4202": {
+    "description": "Air conditioning compressor, open circuit"
+  },
+  "4300": {
+    "description": "Radiator fan stage 1, short to ground"
+  },
+  "4301": {
+    "description": "Radiator fan stage 1, short to positive"
+  },
+  "4302": {
+    "description": "Radiator fan stage 1, open circuit"
+  },
+  "4303": {
+    "description": "Radiator fan stage 2, short to ground"
+  },
+  "4304": {
+    "description": "Radiator fan stage 2, short to positive"
+  },
+  "4305": {
+    "description": "Radiator fan stage 2, open circuit"
+  },
+  "4400": {
+    "description": "Alternator, charging voltage too low"
+  },
+  "4401": {
+    "description": "Alternator, charging voltage too high"
+  },
+  "4402": {
+    "description": "Alternator, control circuit fault"
+  },
+  "4500": {
+    "description": "Battery sensor, signal missing"
+  },
+  "4501": {
+    "description": "Battery sensor, plausibility"
+  },
+  "4502": {
+    "description": "Battery voltage too low"
+  },
+  "4503": {
+    "description": "Battery voltage too high"
+  },
+  "5000": {
+    "description": "Engine speed sensor, correlation error"
+  },
+  "5001": {
+    "description": "Engine speed limit exceeded"
+  },
+  "5100": {
+    "description": "Camshaft adjustment, bank 1 intake setpoint not reached"
+  },
+  "5101": {
+    "description": "Camshaft adjustment, bank 1 exhaust setpoint not reached"
+  },
+  "5102": {
+    "description": "Camshaft adjustment, bank 2 intake setpoint not reached"
+  },
+  "5103": {
+    "description": "Camshaft adjustment, bank 2 exhaust setpoint not reached"
+  },
+  "5200": {
+    "description": "Intake air temperature too high"
+  },
+  "5201": {
+    "description": "Charge air temperature too high"
+  },
+  "5300": {
+    "description": "Exhaust gas temperature sensor 1 bank 1, signal missing"
+  },
+  "5301": {
+    "description": "Exhaust gas temperature sensor 1 bank 1, plausibility"
+  },
+  "5302": {
+    "description": "Exhaust gas temperature sensor 2 bank 1, signal missing"
+  },
+  "5303": {
+    "description": "Exhaust gas temperature sensor 2 bank 1, plausibility"
+  },
+  "5304": {
+    "description": "Exhaust gas temperature sensor 1 bank 2, signal missing"
+  },
+  "5305": {
+    "description": "Exhaust gas temperature sensor 1 bank 2, plausibility"
+  },
+  "5306": {
+    "description": "Exhaust gas temperature sensor 2 bank 2, signal missing"
+  },
+  "5307": {
+    "description": "Exhaust gas temperature sensor 2 bank 2, plausibility"
+  },
+  "5400": {
+    "description": "DME power supply, voltage too low"
+  },
+  "5401": {
+    "description": "DME power supply, voltage too high"
+  },
+  "5402": {
+    "description": "DME internal voltage regulator fault"
+  },
+  "5500": {
+    "description": "Fuel level sensor, signal missing"
+  },
+  "5501": {
+    "description": "Fuel level sensor, plausibility"
+  },
+  "5502": {
+    "description": "Fuel level too low"
+  },
+  "5600": {
+    "description": "Air pump control valve, short to ground"
+  },
+  "5601": {
+    "description": "Air pump control valve, short to positive"
+  },
+  "5602": {
+    "description": "Air pump control valve, open circuit"
+  },
+  "5700": {
+    "description": "Turbocharger pressure relief valve, short to ground"
+  },
+  "5701": {
+    "description": "Turbocharger pressure relief valve, short to positive"
+  },
+  "5702": {
+    "description": "Turbocharger pressure relief valve, open circuit"
+  },
+  "5800": {
+    "description": "Fuel quality sensor, signal missing"
+  },
+  "5801": {
+    "description": "Fuel quality sensor, plausibility"
+  },
+  "5802": {
+    "description": "Fuel quality deviation detected"
+  },
+  "5900": {
+    "description": "Differential pressure sensor DPF, signal missing"
+  },
+  "5901": {
+    "description": "Differential pressure sensor DPF, plausibility"
+  },
+  "5902": {
+    "description": "Diesel particulate filter, regeneration required"
+  },
+  "5903": {
+    "description": "Diesel particulate filter, ash accumulation limit"
+  },
+  "6000": {
+    "description": "Glow plug relay, short to ground"
+  },
+  "6001": {
+    "description": "Glow plug relay, short to positive"
+  },
+  "6002": {
+    "description": "Glow plug relay, open circuit"
+  },
+  "6003": {
+    "description": "Glow plug cylinder 1, short to ground"
+  },
+  "6004": {
+    "description": "Glow plug cylinder 1, open circuit"
+  },
+  "6005": {
+    "description": "Glow plug cylinder 2, short to ground"
+  },
+  "6006": {
+    "description": "Glow plug cylinder 2, open circuit"
+  },
+  "6007": {
+    "description": "Glow plug cylinder 3, short to ground"
+  },
+  "6008": {
+    "description": "Glow plug cylinder 3, open circuit"
+  },
+  "6009": {
+    "description": "Glow plug cylinder 4, short to ground"
+  },
+  "600A": {
+    "description": "Glow plug cylinder 4, open circuit"
+  },
+  "600B": {
+    "description": "Glow plug cylinder 5, short to ground"
+  },
+  "600C": {
+    "description": "Glow plug cylinder 5, open circuit"
+  },
+  "600D": {
+    "description": "Glow plug cylinder 6, short to ground"
+  },
+  "600E": {
+    "description": "Glow plug cylinder 6, open circuit"
+  },
+  "6100": {
+    "description": "SCR system, urea injection valve short to ground"
+  },
+  "6101": {
+    "description": "SCR system, urea injection valve short to positive"
+  },
+  "6102": {
+    "description": "SCR system, urea injection valve open circuit"
+  },
+  "6103": {
+    "description": "SCR system, urea tank level too low"
+  },
+  "6104": {
+    "description": "SCR system, urea quality poor"
+  },
+  "6105": {
+    "description": "SCR system, efficiency below threshold"
+  },
+  "6200": {
+    "description": "NOx sensor upstream, signal missing"
+  },
+  "6201": {
+    "description": "NOx sensor upstream, plausibility"
+  },
+  "6202": {
+    "description": "NOx sensor downstream, signal missing"
+  },
+  "6203": {
+    "description": "NOx sensor downstream, plausibility"
+  },
+  "CD53": {
+    "description": "Terminal 15 supply voltage fault"
+  },
+  "CD54": {
+    "description": "Terminal 30 supply voltage fault"
+  },
+  "CD55": {
+    "description": "DME ground connection fault"
+  },
+  "2F6C": {
+    "description": "Exhaust flap, input signal"
+  },
+  "2F6D": {
+    "description": "Exhaust flap, position sensor"
+  },
+  "2F6E": {
+    "description": "Exhaust flap, mechanical stuck"
+  },
+  "122B": {
+    "description": "VANOS adjustment, bank 1 inlet control deviation"
+  },
+  "122C": {
+    "description": "VANOS adjustment, bank 1 exhaust control deviation"
+  },
+  "122D": {
+    "description": "VANOS adjustment, bank 2 inlet control deviation"
+  },
+  "122E": {
+    "description": "VANOS adjustment, bank 2 exhaust control deviation"
+  },
+  "1230": {
+    "description": "VANOS sensor, bank 1 inlet signal implausible"
+  },
+  "1231": {
+    "description": "VANOS sensor, bank 1 exhaust signal implausible"
+  },
+  "1232": {
+    "description": "VANOS sensor, bank 2 inlet signal implausible"
+  },
+  "1233": {
+    "description": "VANOS sensor, bank 2 exhaust signal implausible"
+  },
+  "1240": {
+    "description": "Valvetronic, reference run unsuccessful"
+  },
+  "1241": {
+    "description": "Valvetronic, emergency running mode active"
+  },
+  "1242": {
+    "description": "Valvetronic, lower mechanical stop not reached"
+  },
+  "1243": {
+    "description": "Valvetronic, upper mechanical stop not reached"
+  },
+  "1244": {
+    "description": "Valvetronic, shaft position sensor defective"
+  },
+  "1245": {
+    "description": "Valvetronic, eccentric shaft position signal drift"
+  },
+  "125A": {
+    "description": "Valvetronic servo motor, current too low"
+  },
+  "125B": {
+    "description": "Valvetronic servo motor, current too high"
+  },
+  "125C": {
+    "description": "Valvetronic servo motor, overtemperature"
+  },
+  "1380": {
+    "description": "Knock sensor 1 bank 1, signal implausible"
+  },
+  "1381": {
+    "description": "Knock sensor 2 bank 1, signal implausible"
+  },
+  "1382": {
+    "description": "Knock sensor 1 bank 2, signal implausible"
+  },
+  "1383": {
+    "description": "Knock sensor 2 bank 2, signal implausible"
+  },
+  "1390": {
+    "description": "Knock control cylinder 1, ignition retard limit"
+  },
+  "1391": {
+    "description": "Knock control cylinder 2, ignition retard limit"
+  },
+  "1392": {
+    "description": "Knock control cylinder 3, ignition retard limit"
+  },
+  "1393": {
+    "description": "Knock control cylinder 4, ignition retard limit"
+  },
+  "1394": {
+    "description": "Knock control cylinder 5, ignition retard limit"
+  },
+  "1395": {
+    "description": "Knock control cylinder 6, ignition retard limit"
+  },
+  "1800": {
+    "description": "Throttle valve, lower mechanical stop adaptation"
+  },
+  "1801": {
+    "description": "Throttle valve, upper mechanical stop adaptation"
+  },
+  "1802": {
+    "description": "Throttle valve, emergency air position active"
+  },
+  "1803": {
+    "description": "Throttle valve, limp home activated"
+  },
+  "1804": {
+    "description": "Throttle valve, spring test unsuccessful"
+  },
+  "1810": {
+    "description": "Throttle valve position sensor 1, voltage too low"
+  },
+  "1811": {
+    "description": "Throttle valve position sensor 1, voltage too high"
+  },
+  "1812": {
+    "description": "Throttle valve position sensor 2, voltage too low"
+  },
+  "1813": {
+    "description": "Throttle valve position sensor 2, voltage too high"
+  },
+  "1814": {
+    "description": "Throttle valve position sensors, correlation error"
+  },
+  "1820": {
+    "description": "Accelerator pedal sensor 1, voltage too low"
+  },
+  "1821": {
+    "description": "Accelerator pedal sensor 1, voltage too high"
+  },
+  "1822": {
+    "description": "Accelerator pedal sensor 2, voltage too low"
+  },
+  "1823": {
+    "description": "Accelerator pedal sensor 2, voltage too high"
+  },
+  "1824": {
+    "description": "Accelerator pedal sensors, correlation error"
+  },
+  "1825": {
+    "description": "Accelerator pedal sensor, kickdown signal implausible"
+  },
+  "1900": {
+    "description": "High pressure fuel pump, volume control valve short to ground"
+  },
+  "1901": {
+    "description": "High pressure fuel pump, volume control valve short to positive"
+  },
+  "1902": {
+    "description": "High pressure fuel pump, volume control valve open circuit"
+  },
+  "1903": {
+    "description": "High pressure fuel pump, mechanical failure"
+  },
+  "1904": {
+    "description": "High pressure fuel pump, pressure buildup too slow"
+  },
+  "1905": {
+    "description": "High pressure fuel pump, pressure relief"
+  },
+  "1910": {
+    "description": "High pressure fuel system, rail pressure deviation positive"
+  },
+  "1911": {
+    "description": "High pressure fuel system, rail pressure deviation negative"
+  },
+  "1912": {
+    "description": "High pressure fuel sensor, voltage too low"
+  },
+  "1913": {
+    "description": "High pressure fuel sensor, voltage too high"
+  },
+  "1914": {
+    "description": "High pressure fuel sensor, implausible signal"
+  },
+  "1A00": {
+    "description": "Fuel injector cylinder 1, flow rate deviation"
+  },
+  "1A01": {
+    "description": "Fuel injector cylinder 2, flow rate deviation"
+  },
+  "1A02": {
+    "description": "Fuel injector cylinder 3, flow rate deviation"
+  },
+  "1A03": {
+    "description": "Fuel injector cylinder 4, flow rate deviation"
+  },
+  "1A04": {
+    "description": "Fuel injector cylinder 5, flow rate deviation"
+  },
+  "1A05": {
+    "description": "Fuel injector cylinder 6, flow rate deviation"
+  },
+  "1A10": {
+    "description": "Fuel injector cylinder 1, quantity deviation"
+  },
+  "1A11": {
+    "description": "Fuel injector cylinder 2, quantity deviation"
+  },
+  "1A12": {
+    "description": "Fuel injector cylinder 3, quantity deviation"
+  },
+  "1A13": {
+    "description": "Fuel injector cylinder 4, quantity deviation"
+  },
+  "1A14": {
+    "description": "Fuel injector cylinder 5, quantity deviation"
+  },
+  "1A15": {
+    "description": "Fuel injector cylinder 6, quantity deviation"
+  },
+  "1A20": {
+    "description": "Fuel injector cylinder 1, activation time drift"
+  },
+  "1A21": {
+    "description": "Fuel injector cylinder 2, activation time drift"
+  },
+  "1A22": {
+    "description": "Fuel injector cylinder 3, activation time drift"
+  },
+  "1A23": {
+    "description": "Fuel injector cylinder 4, activation time drift"
+  },
+  "1A24": {
+    "description": "Fuel injector cylinder 5, activation time drift"
+  },
+  "1A25": {
+    "description": "Fuel injector cylinder 6, activation time drift"
+  },
+  "1B00": {
+    "description": "Ignition coil cylinder 1, primary circuit short to ground"
+  },
+  "1B01": {
+    "description": "Ignition coil cylinder 1, primary circuit short to positive"
+  },
+  "1B02": {
+    "description": "Ignition coil cylinder 1, secondary circuit malfunction"
+  },
+  "1B03": {
+    "description": "Ignition coil cylinder 2, primary circuit short to ground"
+  },
+  "1B04": {
+    "description": "Ignition coil cylinder 2, primary circuit short to positive"
+  },
+  "1B05": {
+    "description": "Ignition coil cylinder 2, secondary circuit malfunction"
+  },
+  "1B06": {
+    "description": "Ignition coil cylinder 3, primary circuit short to ground"
+  },
+  "1B07": {
+    "description": "Ignition coil cylinder 3, primary circuit short to positive"
+  },
+  "1B08": {
+    "description": "Ignition coil cylinder 3, secondary circuit malfunction"
+  },
+  "1B09": {
+    "description": "Ignition coil cylinder 4, primary circuit short to ground"
+  },
+  "1B0A": {
+    "description": "Ignition coil cylinder 4, primary circuit short to positive"
+  },
+  "1B0B": {
+    "description": "Ignition coil cylinder 4, secondary circuit malfunction"
+  },
+  "1B0C": {
+    "description": "Ignition coil cylinder 5, primary circuit short to ground"
+  },
+  "1B0D": {
+    "description": "Ignition coil cylinder 5, primary circuit short to positive"
+  },
+  "1B0E": {
+    "description": "Ignition coil cylinder 5, secondary circuit malfunction"
+  },
+  "1B0F": {
+    "description": "Ignition coil cylinder 6, primary circuit short to ground"
+  },
+  "1B10": {
+    "description": "Ignition coil cylinder 6, primary circuit short to positive"
+  },
+  "1B11": {
+    "description": "Ignition coil cylinder 6, secondary circuit malfunction"
+  },
+  "1C00": {
+    "description": "Lambda sensor bank 1 sensor 1, internal resistance too high"
+  },
+  "1C01": {
+    "description": "Lambda sensor bank 1 sensor 1, internal resistance too low"
+  },
+  "1C02": {
+    "description": "Lambda sensor bank 1 sensor 1, pump current circuit fault"
+  },
+  "1C03": {
+    "description": "Lambda sensor bank 1 sensor 1, reference voltage fault"
+  },
+  "1C04": {
+    "description": "Lambda sensor bank 1 sensor 1, heating circuit fault"
+  },
+  "1C05": {
+    "description": "Lambda sensor bank 1 sensor 1, slow response rich to lean"
+  },
+  "1C06": {
+    "description": "Lambda sensor bank 1 sensor 1, slow response lean to rich"
+  },
+  "1C10": {
+    "description": "Lambda sensor bank 1 sensor 2, internal resistance too high"
+  },
+  "1C11": {
+    "description": "Lambda sensor bank 1 sensor 2, internal resistance too low"
+  },
+  "1C12": {
+    "description": "Lambda sensor bank 1 sensor 2, pump current circuit fault"
+  },
+  "1C13": {
+    "description": "Lambda sensor bank 1 sensor 2, reference voltage fault"
+  },
+  "1C14": {
+    "description": "Lambda sensor bank 1 sensor 2, heating circuit fault"
+  },
+  "1C15": {
+    "description": "Lambda sensor bank 1 sensor 2, slow response rich to lean"
+  },
+  "1C16": {
+    "description": "Lambda sensor bank 1 sensor 2, slow response lean to rich"
+  },
+  "1C20": {
+    "description": "Lambda sensor bank 2 sensor 1, internal resistance too high"
+  },
+  "1C21": {
+    "description": "Lambda sensor bank 2 sensor 1, internal resistance too low"
+  },
+  "1C22": {
+    "description": "Lambda sensor bank 2 sensor 1, pump current circuit fault"
+  },
+  "1C23": {
+    "description": "Lambda sensor bank 2 sensor 1, reference voltage fault"
+  },
+  "1C24": {
+    "description": "Lambda sensor bank 2 sensor 1, heating circuit fault"
+  },
+  "1C25": {
+    "description": "Lambda sensor bank 2 sensor 1, slow response rich to lean"
+  },
+  "1C26": {
+    "description": "Lambda sensor bank 2 sensor 1, slow response lean to rich"
+  },
+  "1C30": {
+    "description": "Lambda sensor bank 2 sensor 2, internal resistance too high"
+  },
+  "1C31": {
+    "description": "Lambda sensor bank 2 sensor 2, internal resistance too low"
+  },
+  "1C32": {
+    "description": "Lambda sensor bank 2 sensor 2, pump current circuit fault"
+  },
+  "1C33": {
+    "description": "Lambda sensor bank 2 sensor 2, reference voltage fault"
+  },
+  "1C34": {
+    "description": "Lambda sensor bank 2 sensor 2, heating circuit fault"
+  },
+  "1C35": {
+    "description": "Lambda sensor bank 2 sensor 2, slow response rich to lean"
+  },
+  "1C36": {
+    "description": "Lambda sensor bank 2 sensor 2, slow response lean to rich"
+  },
+  "1D00": {
+    "description": "Lambda control bank 1, mixture too lean at idle"
+  },
+  "1D01": {
+    "description": "Lambda control bank 1, mixture too rich at idle"
+  },
+  "1D02": {
+    "description": "Lambda control bank 1, mixture too lean at part load"
+  },
+  "1D03": {
+    "description": "Lambda control bank 1, mixture too rich at part load"
+  },
+  "1D04": {
+    "description": "Lambda control bank 1, mixture too lean at full load"
+  },
+  "1D05": {
+    "description": "Lambda control bank 1, mixture too rich at full load"
+  },
+  "1D10": {
+    "description": "Lambda control bank 2, mixture too lean at idle"
+  },
+  "1D11": {
+    "description": "Lambda control bank 2, mixture too rich at idle"
+  },
+  "1D12": {
+    "description": "Lambda control bank 2, mixture too lean at part load"
+  },
+  "1D13": {
+    "description": "Lambda control bank 2, mixture too rich at part load"
+  },
+  "1D14": {
+    "description": "Lambda control bank 2, mixture too lean at full load"
+  },
+  "1D15": {
+    "description": "Lambda control bank 2, mixture too rich at full load"
+  },
+  "1E00": {
+    "description": "Boost pressure control, wastegate bank 1 stuck open"
+  },
+  "1E01": {
+    "description": "Boost pressure control, wastegate bank 1 stuck closed"
+  },
+  "1E02": {
+    "description": "Boost pressure control, wastegate bank 2 stuck open"
+  },
+  "1E03": {
+    "description": "Boost pressure control, wastegate bank 2 stuck closed"
+  },
+  "1E10": {
+    "description": "Boost pressure sensor, signal voltage too low"
+  },
+  "1E11": {
+    "description": "Boost pressure sensor, signal voltage too high"
+  },
+  "1E12": {
+    "description": "Boost pressure sensor, implausible signal"
+  },
+  "1E13": {
+    "description": "Boost pressure sensor, correlation with MAP sensor"
+  },
+  "1E20": {
+    "description": "Turbocharger bank 1, compressor outlet temperature too high"
+  },
+  "1E21": {
+    "description": "Turbocharger bank 2, compressor outlet temperature too high"
+  },
+  "1E22": {
+    "description": "Turbocharger bank 1, turbine inlet temperature too high"
+  },
+  "1E23": {
+    "description": "Turbocharger bank 2, turbine inlet temperature too high"
+  },
+  "1E30": {
+    "description": "Turbocharger bank 1, wastegate solenoid short to ground"
+  },
+  "1E31": {
+    "description": "Turbocharger bank 1, wastegate solenoid short to positive"
+  },
+  "1E32": {
+    "description": "Turbocharger bank 1, wastegate solenoid open circuit"
+  },
+  "1E33": {
+    "description": "Turbocharger bank 2, wastegate solenoid short to ground"
+  },
+  "1E34": {
+    "description": "Turbocharger bank 2, wastegate solenoid short to positive"
+  },
+  "1E35": {
+    "description": "Turbocharger bank 2, wastegate solenoid open circuit"
+  },
+  "1F00": {
+    "description": "Charge air pressure too low, underboost system"
+  },
+  "1F01": {
+    "description": "Charge air pressure too high, overboost system"
+  },
+  "1F02": {
+    "description": "Charge air pressure regulation, control deviation"
+  },
+  "1F03": {
+    "description": "Charge air temperature too high"
+  },
+  "1F10": {
+    "description": "Charge air cooler bypass valve, stuck open"
+  },
+  "1F11": {
+    "description": "Charge air cooler bypass valve, stuck closed"
+  },
+  "1F12": {
+    "description": "Charge air cooler bypass valve, position sensor fault"
+  },
+  "2000": {
+    "description": "DME control unit, internal fault RAM"
+  },
+  "2001": {
+    "description": "DME control unit, internal fault ROM"
+  },
+  "2002": {
+    "description": "DME control unit, internal fault EEPROM"
+  },
+  "2003": {
+    "description": "DME control unit, internal fault flash memory"
+  },
+  "2010": {
+    "description": "DME control unit, watchdog reset occurred"
+  },
+  "2011": {
+    "description": "DME control unit, processor fault"
+  },
+  "2012": {
+    "description": "DME control unit, supply voltage out of range"
+  },
+  "2013": {
+    "description": "DME control unit, internal temperature too high"
+  },
+  "2020": {
+    "description": "DME control unit, injector driver stage 1 fault"
+  },
+  "2021": {
+    "description": "DME control unit, injector driver stage 2 fault"
+  },
+  "2022": {
+    "description": "DME control unit, injector driver stage 3 fault"
+  },
+  "2023": {
+    "description": "DME control unit, injector driver stage 4 fault"
+  },
+  "2024": {
+    "description": "DME control unit, injector driver stage 5 fault"
+  },
+  "2025": {
+    "description": "DME control unit, injector driver stage 6 fault"
+  },
+  "2030": {
+    "description": "DME control unit, ignition driver stage 1 fault"
+  },
+  "2031": {
+    "description": "DME control unit, ignition driver stage 2 fault"
+  },
+  "2032": {
+    "description": "DME control unit, ignition driver stage 3 fault"
+  },
+  "2033": {
+    "description": "DME control unit, ignition driver stage 4 fault"
+  },
+  "2034": {
+    "description": "DME control unit, ignition driver stage 5 fault"
+  },
+  "2035": {
+    "description": "DME control unit, ignition driver stage 6 fault"
+  },
+  "20A5": {
+    "description": "Turbocharger coolant pump, short to ground"
+  },
+  "20A6": {
+    "description": "Turbocharger coolant pump, short to positive"
+  },
+  "20A7": {
+    "description": "Turbocharger coolant pump, open circuit"
+  },
+  "20A8": {
+    "description": "Turbocharger coolant pump, mechanical fault"
+  }
+}

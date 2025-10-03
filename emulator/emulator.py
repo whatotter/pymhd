@@ -233,9 +233,7 @@ while True:
         if len(packet) == 0:
             break
         
-        for x in range(2):
-            time.sleep(0.01) # don't bug out the phone!
-            conn.sendall(packet) # reflect the packet back
+        conn.sendall(packet) # reflect the packet back
 
         print()
         print('[+] packet <len={}> <b64={}> <raw={}>'.format(len(packet), base64.b64encode(packet), byteArrayToHex(packet)))
@@ -246,9 +244,9 @@ while True:
                 print("| Device requested data ({})".format(time.time()))
                 print("\\ Returning {}".format(byteArrayToHex(data)))
 
-                #for x in range(1): # send twice to speed up app
-                #    conn.sendall(data)
-                #    time.sleep(0.05)
+                for x in range(2): # send twice to speed up app
+                    conn.sendall(data)
+                    time.sleep(0.05)
 
                 conn.sendall(data)
                 time.sleep(0.05)
@@ -262,7 +260,8 @@ while True:
             packetsAutoReplied += 1
 
         else:
-            if packet[1:3] == b"\x12\xf1\x2c": # detect parameter packet
+            if packet[1:4] == b"\x12\xf1\x72": # detect parameter packet
+                # 12 f1 72 2c
                 print("[!] this a parameter packet")
                 parameterPacket = packet
                 paramaterPacketFileObject.write(

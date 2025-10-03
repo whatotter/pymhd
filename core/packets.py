@@ -2,6 +2,9 @@
 Packets for MHD
 """
 
+import base64
+
+
 def byteArrayToHex(bytear:bytes):
     #return bytear.hex()
 
@@ -75,4 +78,7 @@ class MHDPackets():
     RequestFlash = b"\x87\x12\xf1\x23\x80\x07\xe6\x20\x00\x40" # 12 f1 23 80 07 e6 20 00 40
     RequestDME = b"\x82\x12\xf1\x1a\x86" # 12 f1 1a 86
     RequestRegisters = b'\x12\xf1\x21\xf0'
+
+    RequestShadowActiveCodes = b'\x83\x12\xf1\x22\x20\x00\xc8'
+    RequestActiveCodes       = b'\x84\x12\xf1\x18\x02\xff\xff\x9f'
 
