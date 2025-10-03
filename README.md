@@ -6,7 +6,7 @@ doesn't require licenses btw
 
 # features
 - [x] logging
-- [ ] code reading (removed for now)
+- [x] code reading
 - [ ] flashing (still needs to undergo testing)
 
 # examples
