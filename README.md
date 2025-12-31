@@ -4,6 +4,9 @@ a python API for communicating to the MHD adapter, mainly for logging vehicle da
 doesn't require licenses btw
 <sub>MHD plz don't sue me</sub>
 
+# disclaimer
+because i see people still starring this repository, i must say that **THIS PROJECT IS OBSOLETE TO ME**. MHD uses nothing special other maybe UDS ids, which are obtainable by going [here](https://github.com/whatotter/pymhd/blob/main/core/parameters.py). if you're still looking to get real-time data from your BMW, read into *Unified Diagnostic Protocol*. it's extremely useful to learn, there's a bunch of documentation out there, and it works for basically every brand (hence unified). [PyUDS's documentation is one of the best imo](https://python-uds.readthedocs.io/en/latest/), and if you need any help, feel free to pull an issue here or mention me in my [discord](https://discord.gg/HtjfnDsxpJ)
+
 # features
 - [x] logging
 - [x] code reading
